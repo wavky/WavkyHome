@@ -1,0 +1,105 @@
+@charset "utf-8";
+body {
+	background-color: #454545;
+	background-image: url(../image/bg_slash.png);
+}
+div#main {
+	min-width: 650px;
+	margin: 0 10%;
+	background-color: transparent;
+	padding-bottom:50px;
+}
+div#header {
+	background-color: transparent;
+	border-bottom: solid 2px #999999;
+	border-bottom-color:#222;
+}
+div#footer {
+	display: none;
+	background-color: #636;
+	min-width: 600px;
+	height: 50px;
+	width: 80%;
+	margin: 0 10%;
+	position: fixed;
+	z-index: 100;
+	bottom: 0;
+	left: 0;
+}
+div#header > div {
+	display: inline-block;
+	height: 100px;
+	vertical-align: top;
+}
+div#header div#top {
+	height: 30px;
+	background: #B2A36A;
+	display: block;
+}
+div#header div#visitor {
+	display: inline-block;
+	height:24px;
+	width:395px;
+	overflow:hidden;
+	vertical-align:top;
+	position: relative;
+	top:3px;
+	left:-115px;
+}
+div#header div#language {
+	background-color: #454545;
+	background-image: url(../image/bg_slash.png);
+	width: 120px;
+	height: 30px;
+	line-height: 30px;
+	position: relative;
+	top:0;
+	left: 75%;
+	display: inline-block;
+	text-align: center;
+}
+div#header div#language a {
+	display: inline-block;
+	margin-top: 3px;
+}
+div#logoDIV {
+	width: 100px;
+	height:100px;
+	margin: 0 8% 0 16%;
+	text-align:center;
+}
+div#logoDIV img{
+	width: 100px;
+	height:100px;
+}
+div#header div#navigationDIV {
+	padding: 0 0px;
+	line-height: 100px;
+	text-align: center;
+}
+ul#navigationLIST li {
+	line-height: normal;
+	list-style-type:none;
+	behavior: url(ie-css3.htc);
+	display: inline-block;
+	vertical-align: middle;
+}
+ul#navigationLIST li > a {
+	border: 2px solid #525252;
+	padding: 10px 10px;
+	margin: 0 3px;
+	background-color: #525252;
+	background-color: transparent;
+	border-color:transparent;
+	color: #fff;
+	font-weight: bold;
+}
+ul#navigationLIST li > a:hover, ul#navigationLIST li > a:active, ul#navigationLIST li > a.currentTab {
+	background-color: #353535;
+	border-color: #353535;
+}
+div#content{
+	background-color:#353535;
+	padding:15px;
+	padding-bottom:30px;
+}

@@ -1,0 +1,59 @@
+@charset "utf-8";
+
+html, body, * {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-size:14px;
+	color:#eee;
+	font-family:"微软雅黑",'Microsoft Yahei',Arial,Serif;
+	background:#fff;
+}
+
+* html,* html body /* 修正IE6振动bug */{
+background-image:url(about:blank);background-attachment:fixed;
+}
+
+dl,dt,dd,table,tr,td,th{
+	margin:0;padding:0;border:0px;
+}
+
+img{
+	border:none;
+}
+
+ul{
+	
+}
+
+ul,li{
+  margin:0;padding:0;
+}
+
+a:link {color: #999;text-decoration: none;}
+a:visited {color: #999;text-decoration: none;}
+a:hover {color: #999;text-decoration: none;}
+a:active {color: #999;text-decoration: none;}
+
+.clear{
+	clear:both;
+}
+
+.radius{
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	behavior: url(ie-css3.htc);
+	overflow:hidden;
+}
+
+.circle {
+	-webkit-border-radius: 5em;
+	-moz-border-radius: 5em;
+	border-radius: 5em;
+	position:relative;
+	behavior: url(ie-css3.htc);
+	z-index:99999;
+}

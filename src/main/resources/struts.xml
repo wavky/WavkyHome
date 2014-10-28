@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+	<constant name="struts.ognl.allowStaticMethodAccess" value="true" />
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.serve.static.browserCache" value="false" />
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	<constant name="struts.locale" value="zh_CN" />
+	<constant name="struts.custom.i18n.resources" value="lang" />
+
+	<package name="404" extends="struts-default">
+		<action name="*">
+			<result>/not_found.jsp</result>
+		</action>
+	</package>
+	<package name="root" namespace="/" extends="struts-default">
+		<action name="" class="action.IndexAction">
+			<result>/index.jsp</result>
+		</action>
+		<action name="index" class="action.IndexAction">
+			<result>/index.jsp</result>
+		</action>
+		<action name="lab" class="action.LabAction">
+			<result>/lab.jsp</result>
+		</action>
+		<action name="interface" class="action.InterfaceAction">
+			<result>/interface.jsp</result>
+		</action>
+		<action name="master">
+			<result>/master.jsp</result>
+		</action>
+	</package>
+</struts>

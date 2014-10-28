@@ -1,0 +1,34 @@
+@charset "utf-8";
+div#interfaceList ol, div#dictionaryList ol {
+	line-height: 2em;
+	margin: 0 50px;
+	font-size: 1.2em;
+}
+div#interfaceList li, div#dictionaryList li {
+	margin-top: 15px;
+}
+div#interfaceList {
+	margin-bottom: 50px;
+}
+div#interfaceList li a p, div#dictionaryList li a p {
+	line-height: 1em;
+}
+div#interfaceList li p.explanation {
+}
+div#interfaceList li p.entity {
+}
+div#dictionaryList {
+	border-top: dotted 1px #B2A36A;
+	padding-top: 30px;
+}
+div.dictionaryTableDiv table {
+	margin-top: 15px;
+	border: solid 1px #aaa;
+	border-collapse: collapse;
+}
+div.dictionaryTableDiv table tr,div.dictionaryTableDiv table td {
+	border: solid 1px #aaa;
+	border-collapse: collapse;
+	padding:5px;
+	line-height:1.5em;
+}

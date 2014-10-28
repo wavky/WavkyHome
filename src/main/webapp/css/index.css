@@ -1,0 +1,62 @@
+@charset "utf-8";
+div#recentlyWorkList ul, div#articleList ul {
+	line-height: 2em;
+	margin: 0 20px;
+	font-size: 1.2em;
+}
+div#recentlyWorkList {
+	margin-bottom: 25px;
+}
+div#recentlyWorkList ul {
+	list-style-type: none;
+	text-align: center;
+	margin-top: 25px;
+}
+div#recentlyWorkList ul li {
+	display: inline-block;
+	vertical-align: top;
+	text-align: center;
+	margin: 20px 10px;
+}
+div#recentlyWorkList a:link, div#recentlyWorkList a:visited{
+	color: #eee;
+}
+div#recentlyWorkList a:hover, div#recentlyWorkList a p:hover{
+	color:#999;
+}
+div#recentlyWorkList li div.recentlyUnit {
+	background-color: #252525;
+	width: 266.8px;
+}
+div#recentlyWorkList li div.snapshot {
+	height: 150px;
+}
+div#recentlyWorkList li div.snapshot > img {
+	width: 266.8px;
+	height: 150px;
+}
+div#recentlyWorkList li div.platformMark {
+	position: relative;
+	/* 右下角 
+	text-align:right;
+	top:-44px;
+	right:-15px;
+	*/
+	
+	/* 左上角 */
+	text-align: left;
+	top: -170px;
+	left: -10px;
+}
+div#recentlyWorkList li p {
+}
+div#articleList {
+	border-top: dotted 1px #B2A36A;
+	padding-top: 30px;
+}
+div#articleList ul {
+	margin: 0 50px;
+}
+div#articleList li {
+	margin-top: 15px;
+}
