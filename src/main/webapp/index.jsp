@@ -107,15 +107,11 @@
 		<div id="articleList">
 			<h1><s:text name="recentlyArticle" /></h1>
 			<ul>
+			<s:iterator value="articleList">
 				<li>
-					<a>自然哲学的数学原理</a>
+					<a href=<s:property value="linkAddr"/>><s:property value="title"/></a>
 				</li>
-				<li>
-					<a>论语</a>
-				</li>
-				<li>
-					<a>广义相对论</a>
-				</li>
+			</s:iterator>
 			</ul>
 		</div>
 	</div>

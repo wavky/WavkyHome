@@ -6,11 +6,17 @@ package action;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+import org.json.XML;
+
+import util.JsonArticleAdapter;
 import bean.Article;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -53,6 +59,27 @@ public class IndexAction extends ActionSupport {
 		if (System.currentTimeMillis() - lastUpdateTime <= PERIOD)
 			return;
 
+		String xml = getArticleListFromServer();
+		if(xml.isEmpty())
+			return;
+		
+		JSONObject jo = XML.toJSONObject(xml);
+		JSONArray ja = jo.optJSONObject("feed").optJSONArray("entry");
+		articleList.clear();
+		for(int index = 0;index < ja.length();index++){
+			Article article = JsonArticleAdapter.getArticleFrom(ja.optJSONObject(index));
+			articleList.add(article);
+		}
+		lastUpdateTime = System.currentTimeMillis();
+		LOG.info("update article list", null);
+	}
+	
+	/**
+	 * 从博客园API获取文章XML
+	 * @return
+	 * @throws IOException
+	 */
+	private static String getArticleListFromServer() throws IOException{
 		StringBuilder sb = new StringBuilder();
 		URL url = new URL(ARTICLE_LIST_UPDATE_URL);
 		InputStreamReader isr = new InputStreamReader(url.openStream(),
@@ -62,14 +89,7 @@ public class IndexAction extends ActionSupport {
 			sb.append(line);
 		}
 		br.close();
-		String xml = sb.toString().trim();
-		if(xml.isEmpty())
-			return;
-		
-//		JSONObject jo = XML.toJSONObject(xml);
-//		LOG.error(jo.toString(), null);
-		lastUpdateTime = System.currentTimeMillis();
-		LOG.error("updateArticleList", null);
+		return sb.toString().trim();
 	}
 
 	@Override

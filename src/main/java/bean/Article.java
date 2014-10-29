@@ -11,7 +11,16 @@ package bean;
  */
 public class Article {
 	private String title;
+	private String summary;
 	private String linkAddr;
+	/**
+	 * ‰Ø¿¿¡ø
+	 */
+	private int views;
+	/**
+	 * ∆¿¬€ ˝
+	 */
+	private int comments;
 	/**
 	 * @return the title
 	 */
@@ -25,6 +34,18 @@ public class Article {
 		this.title = title;
 	}
 	/**
+	 * @return the summary
+	 */
+	public String getSummary() {
+		return summary;
+	}
+	/**
+	 * @param summary the summary to set
+	 */
+	public void setSummary(String summary) {
+		this.summary = summary;
+	}
+	/**
 	 * @return the linkAddr
 	 */
 	public String getLinkAddr() {
@@ -36,6 +57,30 @@ public class Article {
 	public void setLinkAddr(String linkAddr) {
 		this.linkAddr = linkAddr;
 	}
-	
+	/**
+	 * @return the views
+	 */
+	public int getViews() {
+		return views;
+	}
+	/**
+	 * @param views the views to set
+	 */
+	public void setViews(int views) {
+		this.views = views;
+	}
+	/**
+	 * @return the comments
+	 */
+	public int getComments() {
+		return comments;
+	}
+	/**
+	 * @param comments the comments to set
+	 */
+	public void setComments(int comments) {
+		this.comments = comments;
+	}
+
 	
 }
