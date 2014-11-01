@@ -1,0 +1,60 @@
+@charset "utf-8";
+div#content {
+	height: 350px;
+}
+div#loginPanel {
+	margin: 20px auto;
+	width: 250px;
+	text-align: center;
+}
+div#loginPanel div#masterHead {
+	margin: auto;
+	display: block;
+	vertical-align: middle;
+	border: 3px solid #B2A36A;
+	border-radius: 50px;
+	-webkit-border-radius: 50px;
+	-moz-border-radius: 50px;
+	behavior: url(ie-css3.htc);
+	width: 100px;
+	height: 100px;
+	overflow: hidden;
+	position: relative;
+	top: 20px;
+}
+div#loginPanel div#masterHead img {
+	width: 100px;
+	height: 100px;
+	border-radius: 50px;
+	-webkit-border-radius: 50px;
+	-moz-border-radius: 50px;
+	behavior: url(ie-css3.htc);
+}
+div#loginPanel form {
+	padding: 20px;
+	border: 2px dashed #B2A36A;
+	border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	behavior: url(ie-css3.htc);
+	text-align: center;
+	background-color: #222;
+}
+div#loginPanel form table {
+	line-height: 2em;
+	margin: 10px auto;
+}
+div#loginPanel form input {
+	width: 100px;
+}
+div#loginPanel form button {
+	margin-top: 5px;
+	padding: 5px;
+}
+div#loginPanel form button#submit {
+	padding: 5px 20px;
+}
+div#loginPanel form button#reset {
+	position: absolute;
+	margin-left: 30px;
+}

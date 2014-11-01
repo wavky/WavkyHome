@@ -6,10 +6,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <base target="_blank" />
-<title><s:text name="titleLab" /></title>
+<title>
+<s:text name="titleLab" />
+</title>
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 <link rel="stylesheet" type="text/css" href="css/common_frame.css" />
 <link rel="stylesheet" type="text/css" href="css/lab.css" />
+<link rel="icon" type="image/x-icon" href="image/favicon.ico" />
 </head>
 <body>
 <!-- 居中内容框 -->
@@ -49,8 +52,11 @@
 	
 	<!-- 页面内容 -->
 	<div id="content">
+		<a href="lab/edit"><div id="edit">编辑模式</div></a>
 		<div id="projectList">
-			<h1><s:text name="project" /></h1>
+			<h1>
+				<s:text name="project" />
+			</h1>
 			<ul>
 				<li>
 					<a href="http://www.baidu.com">

@@ -6,6 +6,8 @@
 <struts>
 
 	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+	<constant name="struts.mapper.alwaysSelectFullNamespace"
+	value="true" />
 	<constant name="struts.ognl.allowStaticMethodAccess" value="true" />
 	<constant name="struts.devMode" value="true" />
 	<constant name="struts.serve.static.browserCache" value="false" />
@@ -15,20 +17,23 @@
 
 	<package name="404" extends="struts-default">
 		<action name="*">
-			<result>/not_found.jsp</result>
+			<result type="redirect">/404</result>
 		</action>
 	</package>
 	<package name="root" namespace="/" extends="struts-default">
-		<action name="" class="action.IndexAction">
+		<action name="404">
+			<result>/not_found.html</result>
+		</action>
+		<action name="" class="index">
 			<result>/index.jsp</result>
 		</action>
-		<action name="index" class="action.IndexAction">
+		<action name="index" class="index">
 			<result>/index.jsp</result>
 		</action>
-		<action name="lab" class="action.LabAction">
+		<action name="lab" class="lab">
 			<result>/lab.jsp</result>
 		</action>
-		<action name="interface" class="action.InterfaceAction">
+		<action name="interface" class="interface">
 			<result>/interface.jsp</result>
 		</action>
 		<action name="master">

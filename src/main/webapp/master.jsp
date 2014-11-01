@@ -12,6 +12,7 @@
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 <link rel="stylesheet" type="text/css" href="css/common_frame.css" />
 <link rel="stylesheet" type="text/css" href="css/master_info.css" />
+<link rel="icon" type="image/x-icon" href="image/favicon.ico" />
 </head>
 <body>
 <!-- 居中内容框 -->

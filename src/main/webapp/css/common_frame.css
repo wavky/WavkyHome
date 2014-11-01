@@ -103,3 +103,16 @@ div#content{
 	padding:15px;
 	padding-bottom:30px;
 }
+div#edit{
+	padding:10px;
+	background-color:#400002;
+	width:50px;
+	text-align:center;
+	font-size:1.5em;
+	border:#E60B10 5px outset;
+	position:fixed;
+	left:5%;
+	top:50px;
+	z-index:100;
+	color:white;
+}
