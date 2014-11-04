@@ -5,11 +5,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<base target="_blank" />
-<title><s:text name="titleHome" /></title>
+<base target="_self" />
+<title><s:text name="titleLab" /></title>
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 <link rel="stylesheet" type="text/css" href="css/common_frame.css" />
-<link rel="stylesheet" type="text/css" href="css/index.css" />
+<link rel="stylesheet" type="text/css" href="css/lab_edit.css" />
 <link rel="icon" type="image/x-icon" href="image/favicon.ico" />
 </head>
 <body>
@@ -45,9 +45,9 @@
 			</div>
 			<div class="navigation" id="navigationDIV">
 				<ul id="navigationLIST">
-					<li><a class="currentTab radius" href="#" target="_self">Home</a>
+					<li><a class="radius" href="index" target="_self">Home</a></li>
+					<li><a class="currentTab radius" href="#" target="_self">Lab</a>
 					</li>
-					<li><a class="radius" href="lab" target="_self">Lab</a></li>
 					<li><a class="radius" href="interface" target="_self">Interface</a>
 					</li>
 					<li><a class="radius" href="master" target="_self">Master
@@ -58,13 +58,52 @@
 
 		<!-- 页面内容 -->
 		<div id="content">
-			<div id="recentlyWorkList">
+			<s:if test='#session.isMaster'>
+				<a href="lab">
+					<div id="edit">退出编辑</div>
+				</a>
+			</s:if>
+			<div id="addProject">
+				<form action="lab/edit/addProject" enctype="multipart/form-data"
+					method="post">
+					<table>
+						<tr>
+							<td>类型：</td>
+							<td><input name="type" type="radio" value="android"
+								id="androidRadio" /> <label for="androidRadio">android</label>
+								<input name="type" type="radio" value="web" id="webRadio"
+								class="typeRadio" /> <label for="webRadio">web</label> <input
+								name="type" type="radio" value="window" id="windowRadio"
+								class="typeRadio" /> <label for="windowRadio">window</label></td>
+						</tr>
+						<tr>
+							<td>标题：</td>
+							<td><input type="text" class="text" /></td>
+						</tr>
+						<tr>
+							<td>链接：</td>
+							<td><input type="text" class="text" /></td>
+						</tr>
+						<tr>
+							<td>预览图 (267x150)：</td>
+							<td><input type="file" /></td>
+						</tr>
+					</table>
+					<button type="submit" id="submit" title="Add Project">
+						<img src="image/add.png" />
+					</button>
+				</form>
+			</div>
+			<div id="projectList">
 				<h1>
-					<s:text name="recentlyWork" />
+					<s:text name="project" />
 				</h1>
 				<ul>
-					<li><a href="http://www.baidu.com">
-							<div class="recentlyUnit">
+					<li><a href="http://www.baidu.com" title="delete">
+							<div class="projectUnit">
+								<div class="delete">
+									<img src="image/delete.png" />
+								</div>
 								<div class="snapshot">
 									<img src="image/web.jpg" />
 									<div class="platformMark">
@@ -75,7 +114,10 @@
 							</div>
 					</a></li>
 					<li>
-						<div class="recentlyUnit">
+						<div class="projectUnit">
+							<div class="delete">
+								<img src="image/delete.png" />
+							</div>
 							<div class="snapshot">
 								<img src="image/web2.jpg" />
 								<div class="platformMark">
@@ -86,7 +128,10 @@
 						</div>
 					</li>
 					<li>
-						<div class="recentlyUnit">
+						<div class="projectUnit">
+							<div class="delete">
+								<img src="image/delete.png" />
+							</div>
 							<div class="snapshot">
 								<img src="image/web.jpg" />
 								<div class="platformMark">
@@ -97,7 +142,10 @@
 						</div>
 					</li>
 					<li>
-						<div class="recentlyUnit">
+						<div class="projectUnit">
+							<div class="delete">
+								<img src="image/delete.png" />
+							</div>
 							<div class="snapshot">
 								<img src="image/web.jpg" />
 								<div class="platformMark">
@@ -108,7 +156,10 @@
 						</div>
 					</li>
 					<li>
-						<div class="recentlyUnit">
+						<div class="projectUnit">
+							<div class="delete">
+								<img src="image/delete.png" />
+							</div>
 							<div class="snapshot">
 								<img src="image/web.jpg" />
 								<div class="platformMark">
@@ -119,7 +170,10 @@
 						</div>
 					</li>
 					<li>
-						<div class="recentlyUnit">
+						<div class="projectUnit">
+							<div class="delete">
+								<img src="image/delete.png" />
+							</div>
 							<div class="snapshot">
 								<img src="image/web2.jpg" />
 								<div class="platformMark">
@@ -129,17 +183,6 @@
 							<p class="title">Android app</p>
 						</div>
 					</li>
-				</ul>
-			</div>
-			<div id="articleList">
-				<h1>
-					<s:text name="recentlyArticle" />
-				</h1>
-				<ul>
-					<s:iterator value="articleList">
-						<li><a href=<s:property value="linkAddr"/>><s:property
-									value="title" /></a></li>
-					</s:iterator>
 				</ul>
 			</div>
 		</div>

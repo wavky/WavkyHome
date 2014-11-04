@@ -17,4 +17,5 @@
         <bean id="index" class="action.IndexAction" scope="prototype"/>
         <bean id="lab" class="action.LabAction" scope="prototype"/>
         <bean id="interface" class="action.InterfaceAction" scope="prototype"/>
+        <bean id="login" class="action.LoginAction" scope="prototype"/>
 </beans>

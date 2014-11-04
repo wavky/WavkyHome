@@ -7,7 +7,7 @@
 
 	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
 	<constant name="struts.mapper.alwaysSelectFullNamespace"
-	value="true" />
+		value="true" />
 	<constant name="struts.ognl.allowStaticMethodAccess" value="true" />
 	<constant name="struts.devMode" value="true" />
 	<constant name="struts.serve.static.browserCache" value="false" />
@@ -24,8 +24,8 @@
 		<action name="404">
 			<result>/not_found.html</result>
 		</action>
-		<action name="" class="index">
-			<result>/index.jsp</result>
+		<action name="">
+			<result>/welcome.jsp</result>
 		</action>
 		<action name="index" class="index">
 			<result>/index.jsp</result>
@@ -33,11 +33,27 @@
 		<action name="lab" class="lab">
 			<result>/lab.jsp</result>
 		</action>
+		<action name="lab_edit" class="interface">
+			<result>/lab_edit.jsp</result>
+		</action>
 		<action name="interface" class="interface">
 			<result>/interface.jsp</result>
 		</action>
+		<action name="interface_edit" class="interface">
+			<result>/interface_edit.jsp</result>
+		</action>
 		<action name="master">
 			<result>/master.jsp</result>
+		</action>
+		<action name="login" class="login">
+			<result>/login.jsp</result>
+		</action>
+		<action name="sendLogin" class="login" method="login">
+			<result name="success" type="redirect">${#session.refererUrl}</result>
+			<result name="error" type="redirect">/login.jsp</result>
+		</action>
+		<action name="logout" class="login" method="logout">
+			<result type="redirect">${refererUrl}</result>
 		</action>
 	</package>
 </struts>
