@@ -13,9 +13,9 @@ div#interfaceList {
 div#interfaceList li a p, div#dictionaryList li a p {
 	line-height: 1.5em;
 }
-div#interfaceList li p.explanation {
+div#interfaceList li p.description {
 }
-div#interfaceList li p.entity {
+div#interfaceList li p.body {
 	margin-top:15px;
 }
 div#dictionaryList {
@@ -26,10 +26,15 @@ div.dictionaryTableDiv table {
 	margin-top: 15px;
 	border: solid 1px #aaa;
 	border-collapse: collapse;
+	border-right: none;
+	border-bottom: none;
 }
 div.dictionaryTableDiv table tr,div.dictionaryTableDiv table td {
 	border: solid 1px #aaa;
 	border-collapse: collapse;
 	padding:5px;
 	line-height:1.5em;
+	white-space: pre-wrap;
+	border-right: none;
+	border-bottom: none;
 }

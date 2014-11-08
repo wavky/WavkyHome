@@ -1,91 +1,120 @@
 @charset "utf-8";
+
 div#addInterface {
 	margin: 30px auto 0;
 	min-width: 620px;
 	border-bottom: 1px #B2A36A dashed;
 	padding-bottom: 15px;
 }
+
 div#addInterface form {
 	text-align: center;
 }
+
 div#addInterface form table {
 	display: inline-block;
 	vertical-align: middle;
-	padding-right:20px;
+	padding-right: 20px;
 	border-right: 1px dashed #B2A36A;
 	margin-right: 20px;
 }
-div#addInterface form table tr{
-	display:block;
-	margin:6px auto;
+
+div#addInterface form table tr {
+	display: block;
+	margin: 6px auto;
 }
+
 div#addInterface form table td {
 	text-align: left;
 }
+
 div#addInterface form table td:first-child {
 	text-align: center;
 }
-div#addInterface form input,div#addInterface form textarea{
-	width:350px;
+
+div#addInterface form input, div#addInterface form textarea {
+	width: 350px;
 }
+
 div#addInterface form button#submit {
 	display: inline-block;
 	vertical-align: middle;
 	background-color: transparent;
 	border: none;
-	cursor:pointer;
+	cursor: pointer;
 }
+
 div#interfaceList ol, div#dictionaryList ol {
 	line-height: 2em;
 	margin: 0 50px;
 	font-size: 1.2em;
 }
+
 div#interfaceList li, div#dictionaryList li {
 	padding-top: 15px;
 }
+
 div#interfaceList {
+	padding-top: 30px;
 	margin-bottom: 50px;
-	margin-left:65px;
 }
-div#interfaceList div.delete{
-	width:50px;
-	height:50px;
-	background-color:#fff;
-	position:absolute;
-	margin-left:-90px;
+
+div#interfaceList ol {
 	margin-top:15px;
+	margin-left: 100px;
+}
+
+div#interfaceList div.delete {
+	width: 50px;
+	height: 50px;
+	background-color: #fff;
+	position: absolute;
+	margin-left: -90px;
+	margin-top: 15px;
 	border-radius: 25px;
 	-webkit-border-radius: 25px;
 	-moz-border-radius: 25px;
 	behavior: url(ie-css3.htc);
-		opacity: 0.2;
-	filter: alpha(opacity=20);
+	opacity: 0.2;
+	filter: alpha(opacity = 20);
 }
-div#interfaceList div.delete:hover{
-		opacity: 1.0;
-	filter: alpha(opacity=100);
+
+div#interfaceList div.delete:hover {
+	opacity: 1.0;
+	filter: alpha(opacity = 100);
 }
+
 div#interfaceList li a p, div#dictionaryList li a p {
 	line-height: 1.5em;
 }
-div#interfaceList li p.explanation {
+
+div#interfaceList li p.description {
 	
 }
-div#interfaceList li p.entity {
-	margin-top:15px;
+
+div#interfaceList li p.body {
+	margin-top: 15px;
 }
+
 div#dictionaryList {
 	border-top: dotted 1px #B2A36A;
 	padding-top: 30px;
 }
+
 div.dictionaryTableDiv table {
 	margin-top: 15px;
 	border: solid 1px #aaa;
 	border-collapse: collapse;
+	border-right: none;
+	border-bottom: none;
 }
-div.dictionaryTableDiv table tr,div.dictionaryTableDiv table td {
+
+div.dictionaryTableDiv table tr, div.dictionaryTableDiv table td {
 	border: solid 1px #aaa;
 	border-collapse: collapse;
-	padding:5px;
-	line-height:1.5em;
+	padding: 5px;
+	line-height: 1.5em;
+	white-space: pre-wrap;
+	border-right: none;
+	border-bottom: none;
 }

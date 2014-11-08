@@ -24,6 +24,7 @@ div#addProject form table td:first-child {
 }
 div#addProject form input.typeRadio {
 	margin-left: 10px;
+	margin-right: 5px;
 }
 div#addProject form input.text {
 	width: 200px;

@@ -60,59 +60,55 @@
 			<s:if test='#session.isMaster'>
 				<a href="interface">
 					<div id="edit">退出编辑</div>
+				</a>
 			</s:if>
-			</a>
 			<div id="addInterface">
-				<form action="lab/edit/addInterface" method="post">
+				<s:form action="addInterface" method="post" theme="simple">
 					<table>
 						<tr>
 							<td>用途描述：</td>
-							<td><input type="text" class="text" /></td>
+							<td><s:textfield name="description" cssClass="text" /></td>
 						</tr>
 						<tr>
 							<td>接口形式：</td>
-							<td><input type="text" class="text" /></td>
+							<td><s:textfield name="interfaceBody" cssClass="text" /></td>
 						</tr>
 						<tr>
 							<td>请求格式：</td>
-							<td><textarea rows="5"></textarea></td>
+							<td><s:textarea name="interfaceRequest" cssClass="text"
+									rows="5" /></td>
 						</tr>
 						<tr>
 							<td>响应格式：</td>
-							<td><textarea rows="5"></textarea></td>
+							<td><s:textarea name="interfaceResponse" cssClass="text"
+									rows="5" /></td>
 						</tr>
 					</table>
 					<button type="submit" id="submit" title="Add Interface">
 						<img src="image/add.png" />
 					</button>
-				</form>
+				</s:form>
 			</div>
 			<div id="interfaceList">
 				<h1>
 					<s:text name="interfaceList" />
 				</h1>
 				<ol>
-					<div class="delete">
-						<a href="interface/edit/delete" title="delete"><img
-							src="image/garbage.png" /></a>
-					</div>
-					<li><a href="#interfaceA">
-							<p class="explanation">获取ID</p>
-							<p class="entity">getId?scope=all</p>
-					</a></li>
-					<div class="delete">
-						<a href="interface/edit/delete" title="delete"><img
-							src="image/garbage.png" /></a>
-					</div>
-					<li><a href="#interfaceB">
-							<p class="explanation">接口2很长很长中华人民共和国很长很长中华人民共和国很长很长中华人民共和国很长很长中华人民共和国很长很长中华人民共和国很长很长中华人民共和国很长很长中华人民共和国很长很长中华人民共和国很长很长中华人民共和国很长很长中华人民共和国很长很长</p>
-							<p class="entity">getId?scope=all</p>
-					</a></li>
-					<div class="delete">
-						<a href="interface/edit/delete" title="delete"><img
-							src="image/garbage.png" /></a>
-					</div>
-					<li><a href="#interfaceC">接口3</a></li>
+					<s:iterator value="interfaceList">
+						<div class="delete">
+							<a
+								href="deleteInterface?deleteInterfaceId=<s:property value='id' />"
+								title="delete"><img src="image/garbage.png" /></a>
+						</div>
+						<li><a href="#interface<s:property value='id' />">
+								<p class="description">
+									<s:property value='description' />
+								</p>
+								<p class="body">
+									<s:property value='body' />
+								</p>
+						</a></li>
+					</s:iterator>
 				</ol>
 			</div>
 			<div id="dictionaryList">
@@ -120,96 +116,29 @@
 					<s:text name="interfaceDictionary" />
 				</h1>
 				<ol>
-					<li><a name="interfaceA">
-							<p class="explanation">获取ID</p>
-							<p class="entity">getId?scope=all</p>
-					</a>
-						<div class="dictionaryTableDiv">
-							<table>
-								<tr>
-									<td>请求</td>
-									<td><p>scope：范围</p>
-										<p>其他参数</p></td>
-								</tr>
-								<tr>
-									<td>响应</td>
-									<td><p>id：id列表</p>
-										<p>其他参数</p></td>
-								</tr>
-							</table>
-						</div></li>
-					<li><a name="interfaceB">
-							<p class="explanation">获取IID</p>
-							<p class="entity">getId?scope=all</p>
-					</a>
-						<div class="dictionaryTableDiv">
-							<table>
-								<tr>
-									<td>请求</td>
-									<td><p>scope：范围</p>
-										<p>其他参数</p></td>
-								</tr>
-								<tr>
-									<td>响应</td>
-									<td><p>id：id列表</p>
-										<p>其他参数</p></td>
-								</tr>
-							</table>
-						</div></li>
-					<li><a name="interfaceC">
-							<p class="explanation">获取IIID</p>
-							<p class="entity">getId?scope=all</p>
-					</a>
-						<div class="dictionaryTableDiv">
-							<table>
-								<tr>
-									<td>请求</td>
-									<td><p>scope：范围</p>
-										<p>其他参数</p></td>
-								</tr>
-								<tr>
-									<td>响应</td>
-									<td><p>id：id列表</p>
-										<p>其他参数</p></td>
-								</tr>
-							</table>
-						</div></li>
-					<li><a name="interfaceD">
-							<p class="explanation">获取IIID</p>
-							<p class="entity">getId?scope=all</p>
-					</a>
-						<div class="dictionaryTableDiv">
-							<table>
-								<tr>
-									<td>请求</td>
-									<td><p>scope：范围</p>
-										<p>其他参数</p></td>
-								</tr>
-								<tr>
-									<td>响应</td>
-									<td><p>id：id列表</p>
-										<p>其他参数</p></td>
-								</tr>
-							</table>
-						</div></li>
-					<li><a name="interfaceE">
-							<p class="explanation">获取IIID</p>
-							<p class="entity">getId?scope=all</p>
-					</a>
-						<div class="dictionaryTableDiv">
-							<table>
-								<tr>
-									<td>请求</td>
-									<td><p>scope：范围</p>
-										<p>其他参数</p></td>
-								</tr>
-								<tr>
-									<td>响应</td>
-									<td><p>id：id列表</p>
-										<p>其他参数</p></td>
-								</tr>
-							</table>
-						</div></li>
+					<s:iterator value="interfaceList">
+						<li><a name="interface<s:property value='id' />">
+								<p class="description">
+									<s:property value='description' />
+								</p>
+								<p class="body">
+									<a href="<s:property value='body' />" target="_blank"> <s:property
+											value='body' /></a>
+								</p>
+						</a>
+							<div class="dictionaryTableDiv">
+								<table>
+									<tr>
+										<td>REQUEST</td>
+										<td><p><s:property value='request' /></p></td>
+									</tr>
+									<tr>
+										<td>RESPONSE</td>
+										<td><p><s:property value='response' /></p></td>
+									</tr>
+								</table>
+							</div></li>
+					</s:iterator>
 				</ol>
 			</div>
 		</div>

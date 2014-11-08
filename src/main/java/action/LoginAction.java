@@ -5,11 +5,15 @@ package action;
 
 import org.apache.struts2.ServletActionContext;
 
+import bean.User;
+
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
+import dao.interfaces.UserDao;
+
 /**
- * 
+ * 提供登陆相关操作
  * 
  * @author wavky.wand
  *
@@ -20,6 +24,8 @@ public class LoginAction extends ActionSupport {
 
 	private String name;
 	private String password;
+	private UserDao userDao;
+	
 	/**
 	 * 记录上一个页面
 	 */
@@ -56,6 +62,20 @@ public class LoginAction extends ActionSupport {
 	}
 
 	/**
+	 * @return the userDao
+	 */
+	public UserDao getUserDao() {
+		return userDao;
+	}
+
+	/**
+	 * @param userDao the userDao to set
+	 */
+	public void setUserDao(UserDao userDao) {
+		this.userDao = userDao;
+	}
+
+	/**
 	 * @return the refererUrl
 	 */
 	public String getRefererUrl() {
@@ -79,7 +99,12 @@ public class LoginAction extends ActionSupport {
 
 	public String login() throws Exception {
 		ActionContext ac = ActionContext.getContext();
-		if (getName().equals("wavky")) {
+		User user = getUserDao().get(name);
+		if(user==null){
+			ac.getSession().put("isMaster", false);
+			return ERROR;
+		}
+		if (user.getPassword().equals(getPassword())) {
 			ac.getSession().put("isMaster", true);
 			return SUCCESS;
 		} else {

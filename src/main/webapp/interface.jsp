@@ -65,12 +65,16 @@
 					<s:text name="interfaceList" />
 				</h1>
 				<ol>
-					<li><a href="#interfaceA">
-							<p class="explanation">获取ID</p>
-							<p class="entity">getId?scope=all</p>
-					</a></li>
-					<li><a href="#interfaceB">接口2</a></li>
-					<li><a href="#interfaceC">接口3</a></li>
+					<s:iterator value="interfaceList">
+						<li><a href="#interface<s:property value='id' />">
+								<p class="description">
+									<s:property value='description' />
+								</p>
+								<p class="body">
+									<s:property value='body' />
+								</p>
+						</a></li>
+					</s:iterator>
 				</ol>
 			</div>
 			<div id="dictionaryList">
@@ -78,96 +82,29 @@
 					<s:text name="interfaceDictionary" />
 				</h1>
 				<ol>
-					<li><a name="interfaceA">
-							<p class="explanation">获取ID</p>
-							<p class="entity">getId?scope=all</p>
-					</a>
-						<div class="dictionaryTableDiv">
-							<table>
-								<tr>
-									<td>请求</td>
-									<td><p>scope：范围</p>
-										<p>其他参数</p></td>
-								</tr>
-								<tr>
-									<td>响应</td>
-									<td><p>id：id列表</p>
-										<p>其他参数</p></td>
-								</tr>
-							</table>
-						</div></li>
-					<li><a name="interfaceB">
-							<p class="explanation">获取IID</p>
-							<p class="entity">getId?scope=all</p>
-					</a>
-						<div class="dictionaryTableDiv">
-							<table>
-								<tr>
-									<td>请求</td>
-									<td><p>scope：范围</p>
-										<p>其他参数</p></td>
-								</tr>
-								<tr>
-									<td>响应</td>
-									<td><p>id：id列表</p>
-										<p>其他参数</p></td>
-								</tr>
-							</table>
-						</div></li>
-					<li><a name="interfaceC">
-							<p class="explanation">获取IIID</p>
-							<p class="entity">getId?scope=all</p>
-					</a>
-						<div class="dictionaryTableDiv">
-							<table>
-								<tr>
-									<td>请求</td>
-									<td><p>scope：范围</p>
-										<p>其他参数</p></td>
-								</tr>
-								<tr>
-									<td>响应</td>
-									<td><p>id：id列表</p>
-										<p>其他参数</p></td>
-								</tr>
-							</table>
-						</div></li>
-					<li><a name="interfaceD">
-							<p class="explanation">获取IIID</p>
-							<p class="entity">getId?scope=all</p>
-					</a>
-						<div class="dictionaryTableDiv">
-							<table>
-								<tr>
-									<td>请求</td>
-									<td><p>scope：范围</p>
-										<p>其他参数</p></td>
-								</tr>
-								<tr>
-									<td>响应</td>
-									<td><p>id：id列表</p>
-										<p>其他参数</p></td>
-								</tr>
-							</table>
-						</div></li>
-					<li><a name="interfaceE">
-							<p class="explanation">获取IIID</p>
-							<p class="entity">getId?scope=all</p>
-					</a>
-						<div class="dictionaryTableDiv">
-							<table>
-								<tr>
-									<td>请求</td>
-									<td><p>scope：范围</p>
-										<p>其他参数</p></td>
-								</tr>
-								<tr>
-									<td>响应</td>
-									<td><p>id：id列表</p>
-										<p>其他参数</p></td>
-								</tr>
-							</table>
-						</div></li>
+					<s:iterator value="interfaceList">
+						<li><a name="interface<s:property value='id' />">
+								<p class="description">
+									<s:property value='description' />
+								</p>
+								<p class="body">
+									<a href="<s:property value='body' />" target="_blank"> <s:property
+											value='body' /></a>
+								</p>
+						</a>
+							<div class="dictionaryTableDiv">
+								<table>
+									<tr>
+										<td>REQUEST</td>
+										<td><p><s:property value='request' /></p></td>
+									</tr>
+									<tr>
+										<td>RESPONSE</td>
+										<td><p><s:property value='response' /></p></td>
+									</tr>
+								</table>
+							</div></li>
+					</s:iterator>
 				</ol>
 			</div>
 		</div>

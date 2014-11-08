@@ -58,14 +58,14 @@
 					<table>
 						<tr>
 							<td>ID：</td>
-							<td><s:textfield name="name" /></td>
+							<td><s:textfield name="name" value=""/></td>
 						</tr>
 						<tr>
 							<td>Pass：</td>
-							<td><s:textfield name="password" /></td>
+							<td><s:password name="password" value=""/></td>
 						</tr>
 					</table>
-					<s:submit type="button" value="submit" id="submit" />
+					<s:submit type="button" value="Access" id="submit" />
 					<button type="reset" id="reset">reset</button>
 				</s:form>
 			</div>

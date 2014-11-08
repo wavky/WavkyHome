@@ -64,125 +64,66 @@
 				</a>
 			</s:if>
 			<div id="addProject">
-				<form action="lab/edit/addProject" enctype="multipart/form-data"
-					method="post">
+				<s:fielderror />
+				<s:form action="addProject" enctype="multipart/form-data"
+					method="post" theme="simple" validate="true">
 					<table>
 						<tr>
 							<td>类型：</td>
-							<td><input name="type" type="radio" value="android"
-								id="androidRadio" /> <label for="androidRadio">android</label>
-								<input name="type" type="radio" value="web" id="webRadio"
-								class="typeRadio" /> <label for="webRadio">web</label> <input
-								name="type" type="radio" value="window" id="windowRadio"
-								class="typeRadio" /> <label for="windowRadio">window</label></td>
+							<td><s:radio list="%{{'android','web','window'}}"
+									name="type" cssClass="typeRadio" /></td>
 						</tr>
 						<tr>
 							<td>标题：</td>
-							<td><input type="text" class="text" /></td>
+							<td><s:textfield name="title" cssClass="text" /></td>
 						</tr>
 						<tr>
 							<td>链接：</td>
-							<td><input type="text" class="text" /></td>
+							<td><s:textfield name="linkAddr" cssClass="text" /></td>
 						</tr>
 						<tr>
 							<td>预览图 (267x150)：</td>
-							<td><input type="file" /></td>
+							<td><s:file name="snapshot" /></td>
 						</tr>
 					</table>
 					<button type="submit" id="submit" title="Add Project">
 						<img src="image/add.png" />
 					</button>
-				</form>
+				</s:form>
 			</div>
 			<div id="projectList">
 				<h1>
 					<s:text name="project" />
 				</h1>
 				<ul>
-					<li><a href="http://www.baidu.com" title="delete">
-							<div class="projectUnit">
-								<div class="delete">
-									<img src="image/delete.png" />
-								</div>
-								<div class="snapshot">
-									<img src="image/web.jpg" />
-									<div class="platformMark">
-										<img src="image/ie.png">
+					<s:iterator value="projectList">
+						<li><a
+							href="deleteProject?deleteProjectId=<s:property value='id'/>"
+							title="delete">
+								<div class="projectUnit">
+									<div class="delete">
+										<img src="image/delete.png" />
 									</div>
+									<div class="snapshot">
+										<img src="<s:property value='snapshotAddr' />" />
+										<div class="platformMark">
+											<s:if test="type=='android'">
+												<img src="image/android.png">
+											</s:if>
+											<s:if test="type=='web'">
+												<img src="image/ie.png">
+											</s:if>
+											<s:if test="type=='window'">
+												<img src="image/window.png">
+											</s:if>
+										</div>
+									</div>
+									<p class="title">
+										<s:property value='title' />
+									</p>
 								</div>
-								<p class="title">百度</p>
-							</div>
-					</a></li>
-					<li>
-						<div class="projectUnit">
-							<div class="delete">
-								<img src="image/delete.png" />
-							</div>
-							<div class="snapshot">
-								<img src="image/web2.jpg" />
-								<div class="platformMark">
-									<img src="image/android.png">
-								</div>
-							</div>
-							<p class="title">游民星空 GAMERSKY</p>
-						</div>
-					</li>
-					<li>
-						<div class="projectUnit">
-							<div class="delete">
-								<img src="image/delete.png" />
-							</div>
-							<div class="snapshot">
-								<img src="image/web.jpg" />
-								<div class="platformMark">
-									<img src="image/window.png">
-								</div>
-							</div>
-							<p class="title">呵呵</p>
-						</div>
-					</li>
-					<li>
-						<div class="projectUnit">
-							<div class="delete">
-								<img src="image/delete.png" />
-							</div>
-							<div class="snapshot">
-								<img src="image/web.jpg" />
-								<div class="platformMark">
-									<img src="image/ie.png">
-								</div>
-							</div>
-							<p class="title">google</p>
-						</div>
-					</li>
-					<li>
-						<div class="projectUnit">
-							<div class="delete">
-								<img src="image/delete.png" />
-							</div>
-							<div class="snapshot">
-								<img src="image/web.jpg" />
-								<div class="platformMark">
-									<img src="image/window.png">
-								</div>
-							</div>
-							<p class="title">本地应用EXE</p>
-						</div>
-					</li>
-					<li>
-						<div class="projectUnit">
-							<div class="delete">
-								<img src="image/delete.png" />
-							</div>
-							<div class="snapshot">
-								<img src="image/web2.jpg" />
-								<div class="platformMark">
-									<img src="image/android.png">
-								</div>
-							</div>
-							<p class="title">Android app</p>
-						</div>
-					</li>
+						</a></li>
+					</s:iterator>
 				</ul>
 			</div>
 		</div>

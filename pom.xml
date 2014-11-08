@@ -11,6 +11,7 @@
 	<properties>
 		<struts.version>2.3.16.3</struts.version>
 		<spring.version>4.1.1.RELEASE</spring.version>
+		<hibernate.version>4.3.7.Final</hibernate.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -73,6 +74,21 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
 			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-c3p0</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.33</version>
 		</dependency>
 	</dependencies>
 	<build>
