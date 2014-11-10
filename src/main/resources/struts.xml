@@ -33,7 +33,7 @@
 		<action name="lab" class="lab" method="listProject">
 			<result>/lab.jsp</result>
 		</action>
-		<action name="interface" class="interface">
+		<action name="api" class="interface">
 			<result>/interface.jsp</result>
 		</action>
 		<action name="master">

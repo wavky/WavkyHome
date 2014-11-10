@@ -48,7 +48,7 @@
 					<li><a class="currentTab radius" href="#" target="_self">Home</a>
 					</li>
 					<li><a class="radius" href="lab" target="_self">Lab</a></li>
-					<li><a class="radius" href="interface" target="_self">Interface</a>
+					<li><a class="radius" href="api" target="_self">API</a>
 					</li>
 					<li><a class="radius" href="master" target="_self">Master
 							Info</a></li>

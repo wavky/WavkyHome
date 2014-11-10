@@ -47,7 +47,7 @@
 				<ul id="navigationLIST">
 					<li><a class="radius" href="index" target="_self">Home</a></li>
 					<li><a class="radius" href="lab" target="_self">Lab</a></li>
-					<li><a class="currentTab radius" href="#" target="_self">Interface</a>
+					<li><a class="currentTab radius" href="#" target="_self">API</a>
 					</li>
 					<li><a class="radius" href="master" target="_self">Master
 							Info</a></li>
@@ -58,7 +58,7 @@
 		<!-- 页面内容 -->
 		<div id="content">
 			<s:if test='#session.isMaster'>
-				<a href="interface">
+				<a href="api">
 					<div id="edit">退出编辑</div>
 				</a>
 			</s:if>
