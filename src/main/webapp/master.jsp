@@ -58,6 +58,9 @@
 
 			<!-- 页面内容 -->
 			<div id="content">
+				<s:if test='#session.isMaster'>
+					<a href="updateAccount" target="_self"><div id="edit">修改密码</div></a>
+				</s:if>
 				<div id="personalInfo">
 					<div id="masterHead">
 						<img src="image/head.jpg" />

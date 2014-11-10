@@ -64,6 +64,12 @@
 		<result name="login" type="chain">login</result>
 		</global-results>
 		
+		<action name="updateAccount" class="updateAccount">
+			<result>/account.jsp</result>
+		</action>
+		<action name="sendUpdateAccount" class="updateAccount" method="update">
+			<result type="redirect">/master</result>
+		</action>
 		<action name="lab_edit" class="lab" method="listProject">
 			<result>/lab_edit.jsp</result>
 		</action>
@@ -91,6 +97,14 @@
 		<action name="deleteInterface" class="interface" method="deleteInterface">
 			<result type="redirect">/interface_edit</result>
 			<result name="error" type="chain">interface_edit</result>
+		</action>
+	</package>
+	<package name="api" namespace="/api" extends="json-default">
+		<action name="helloWorld" class="helloWorldApi">
+			<result type="json">
+				<param name="noCache">true</param>
+				<param name="contentType">text/html</param>
+			</result>
 		</action>
 	</package>
 </struts>

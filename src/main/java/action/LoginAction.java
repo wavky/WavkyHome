@@ -106,6 +106,7 @@ public class LoginAction extends ActionSupport {
 		}
 		if (user.getPassword().equals(getPassword())) {
 			ac.getSession().put("isMaster", true);
+			ac.getSession().put("master", user);
 			return SUCCESS;
 		} else {
 			ac.getSession().put("isMaster", false);
@@ -116,6 +117,7 @@ public class LoginAction extends ActionSupport {
 	public String logout() throws Exception {
 		ActionContext ac = ActionContext.getContext();
 		ac.getSession().put("isMaster", false);
+		ac.getSession().remove("master");
 		setRefererUrl(ServletActionContext.getRequest().getHeader("referer"));
 		return SUCCESS;
 	}

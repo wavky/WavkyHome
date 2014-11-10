@@ -10,5 +10,9 @@
 </head>
 <body>
 我错了 Orz
+<s:actionmessage/>
+<s:actionerror/>
+<s:fielderror/>
+<s:debug/>
 </body>
 </html>

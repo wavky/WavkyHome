@@ -21,7 +21,9 @@
 	<bean id="interface" class="action.InterfaceAction" scope="prototype" p:interfaceDao-ref="interfaceDao"/>
 	<bean id="login" class="action.LoginAction" scope="prototype"
 		p:userDao-ref="userDao" />
-
+	<bean id="updateAccount" class="action.UpdateAccount" scope="prototype" p:userDao-ref="userDao" />
+	<!-- APIS -->
+	<bean id="helloWorldApi" class="action.api.HelloWorld" scope="prototype" />
 	<!-- HIBERNATE -->
 	<!-- 配置C3P0数据源，可配置信息参阅 ↓ComboPooledDataSource源码 -->
 	<context:property-placeholder location="classpath:dbinfo.properties" />
