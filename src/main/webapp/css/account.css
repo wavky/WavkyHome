@@ -15,7 +15,7 @@ div#accountPanel div#masterHead {
 	border-radius: 50px;
 	-webkit-border-radius: 50px;
 	-moz-border-radius: 50px;
-	behavior: url(ie-css3.htc);
+
 	width: 100px;
 	height: 100px;
 	overflow: hidden;
@@ -28,7 +28,7 @@ div#accountPanel div#masterHead img {
 	border-radius: 50px;
 	-webkit-border-radius: 50px;
 	-moz-border-radius: 50px;
-	behavior: url(ie-css3.htc);
+
 }
 div#accountPanel form {
 	padding: 20px;
@@ -36,7 +36,7 @@ div#accountPanel form {
 	border-radius: 10px;
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
-	behavior: url(ie-css3.htc);
+
 	text-align: center;
 	background-color: #222;
 }

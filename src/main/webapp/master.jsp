@@ -151,6 +151,7 @@
 					</div>
 				</div>
 			</div>
+			<jsp:include page="footer.jsp" />
 			<!-- 备用浮动页脚 -->
 			<div id="footer"></div>
 		</div>

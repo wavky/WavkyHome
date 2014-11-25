@@ -13,6 +13,8 @@ div#addInterface form {
 
 div#addInterface form table {
 	display: inline-block;
+	*display: inline;
+	*zoom: 1;
 	vertical-align: middle;
 	padding-right: 20px;
 	border-right: 1px dashed #B2A36A;
@@ -38,6 +40,8 @@ div#addInterface form input, div#addInterface form textarea {
 
 div#addInterface form button#submit {
 	display: inline-block;
+	*display: inline;
+	*zoom: 1;
 	vertical-align: middle;
 	background-color: transparent;
 	border: none;
@@ -60,7 +64,7 @@ div#interfaceList {
 }
 
 div#interfaceList ol {
-	margin-top:15px;
+	margin-top: 15px;
 	margin-left: 100px;
 }
 
@@ -74,7 +78,6 @@ div#interfaceList div.delete {
 	border-radius: 25px;
 	-webkit-border-radius: 25px;
 	-moz-border-radius: 25px;
-	behavior: url(ie-css3.htc);
 	opacity: 0.2;
 	filter: alpha(opacity = 20);
 }

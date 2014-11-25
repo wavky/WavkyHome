@@ -19,6 +19,7 @@
 		<action name="*">
 			<result type="redirect">/404</result>
 		</action>
+
 	</package>
 	<package name="root" namespace="/" extends="struts-default">
 		<action name="404">
@@ -59,11 +60,11 @@
 				<interceptor-ref name="masterCheckInterceptor" />
 			</interceptor-stack>
 		</interceptors>
-		<default-interceptor-ref name="masterCheckStack"/>
+		<default-interceptor-ref name="masterCheckStack" />
 		<global-results>
-		<result name="login" type="chain">login</result>
+			<result name="login" type="chain">login</result>
 		</global-results>
-		
+
 		<action name="updateAccount" class="updateAccount">
 			<result>/account.jsp</result>
 		</action>

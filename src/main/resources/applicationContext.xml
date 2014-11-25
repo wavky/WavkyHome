@@ -18,10 +18,12 @@
 		p:projectDao-ref="projectDao" />
 	<bean id="lab" class="action.LabAction" scope="prototype"
 		p:projectDao-ref="projectDao" p:savePathResource="classpath:../../project_snapshot" />
-	<bean id="interface" class="action.InterfaceAction" scope="prototype" p:interfaceDao-ref="interfaceDao"/>
+	<bean id="interface" class="action.InterfaceAction" scope="prototype"
+		p:interfaceDao-ref="interfaceDao" />
 	<bean id="login" class="action.LoginAction" scope="prototype"
 		p:userDao-ref="userDao" />
-	<bean id="updateAccount" class="action.UpdateAccount" scope="prototype" p:userDao-ref="userDao" />
+	<bean id="updateAccount" class="action.UpdateAccount" scope="prototype"
+		p:userDao-ref="userDao" />
 	<!-- APIS -->
 	<bean id="helloWorldApi" class="action.api.HelloWorld" scope="prototype" />
 	<!-- HIBERNATE -->
@@ -76,9 +78,10 @@
 	<bean id="userDao" parent="baseDao" class="dao.UserDaoImpl" />
 	<bean id="projectDao" parent="baseDao" class="dao.ProjectDaoImpl" />
 	<bean id="interfaceDao" parent="baseDao" class="dao.InterfaceDaoImpl" />
-	
-	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-    <property name="dataSource" ref="dataSource"/>
-</bean>
-	<tx:annotation-driven transaction-manager="transactionManager"/>
+
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<tx:annotation-driven transaction-manager="transactionManager" />
 </beans>

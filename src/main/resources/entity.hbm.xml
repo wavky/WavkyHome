@@ -4,14 +4,14 @@
 	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping package="bean">
-	<class name="User">
+	<class name="User" table="user">
 		<id name="id">
 			<generator class="native" />
 		</id>
 		<property name="name" not-null="true" unique="true" length="100" />
 		<property name="password" not-null="true" length="100" />
 	</class>
-	<class name="Project">
+	<class name="Project" table="project">
 		<id name="id">
 			<generator class="native" />
 		</id>
@@ -21,7 +21,7 @@
 		<property name="snapshotAddr" not-null="true" length="1024" />
 		<property name="addTime" not-null="true" />
 	</class>
-	<class name="Interface">
+	<class name="Interface" table="interface">
 		<id name="id">
 			<generator class="native" />
 		</id>
