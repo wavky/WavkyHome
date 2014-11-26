@@ -19,7 +19,7 @@
 		<div id="header">
 			<div id="top">
 				<div id="language">
-					<a href="?request_locale=en_US" target="_self"><img
+					<a href="?request_locale=en" target="_self"><img
 						src="image/us.png" alt="English" title="English" /></a> <a
 						href="?request_locale=zh_CN" target="_self"><img
 						src="image/cn.png" alt="中文" title="中文" /></a> <a
