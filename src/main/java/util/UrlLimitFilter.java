@@ -25,6 +25,11 @@ public class UrlLimitFilter extends StrutsPrepareAndExecuteFilter {
 			FilterChain chain) throws IOException, ServletException {
 		HttpServletRequest request = (HttpServletRequest) req;
 		String url = request.getRequestURI();
+		if (url.contains("/ueditor/jsp/")) {
+			// 跳过Struts2的数据过滤机制，调用下一级过滤器
+			chain.doFilter(req, res);
+			return;
+		}
 		if (url.toLowerCase().endsWith(".jsp")) {
 			System.out.println("禁止直接请求jsp");
 			// 禁止直接请求jsp，内部转发输出404页面，不修改URL
