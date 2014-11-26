@@ -6,8 +6,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Sorry</title>
+<link rel="icon" type="image/x-icon" href="image/favicon.ico" />
 </head>
 <body>
 我错了 Orz
+<s:actionmessage/>
+<s:actionerror/>
+<s:fielderror/>
+<s:debug/>
 </body>
 </html>

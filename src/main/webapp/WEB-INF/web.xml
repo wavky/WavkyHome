@@ -6,6 +6,10 @@
 	<welcome-file-list>
 		<welcome-file></welcome-file>
 	</welcome-file-list>
+	<error-page>
+		<error-code>404</error-code>
+		<location>/not_found.html</location>
+	</error-page>
 	<filter>
 		<filter-name>struts2</filter-name>
 		<filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
@@ -14,4 +18,12 @@
 		<filter-name>struts2</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<!-- 指定Spring配置文件，多个配置文件使用 , 分割，可用 * 通配符 -->
+		<param-value>classpath*:applicationContext.xml</param-value>
+	</context-param>
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
 </web-app>

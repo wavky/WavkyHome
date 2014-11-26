@@ -6,7 +6,6 @@ package action;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
@@ -18,8 +17,11 @@ import org.json.XML;
 
 import util.JsonArticleAdapter;
 import bean.Article;
+import bean.Project;
 
 import com.opensymphony.xwork2.ActionSupport;
+
+import dao.interfaces.ProjectDao;
 
 /**
  * 
@@ -38,12 +40,44 @@ public class IndexAction extends ActionSupport {
 	private static final String ARTICLE_LIST_UPDATE_URL;
 	private static List<Article> articleList;
 
+	private List<Project> projectList;
+
+	private ProjectDao projectDao;
+	
 	static {
 		PAGE_INDEX = 1;
 		PAGE_SIZE = 10;
 		ARTICLE_LIST_UPDATE_URL = "http://wcf.open.cnblogs.com/blog/u/wavky/posts/"
 				+ PAGE_INDEX + "/" + PAGE_SIZE;
 		articleList = new ArrayList<Article>();
+	}
+
+	/**
+	 * @return the projectList
+	 */
+	public List<Project> getProjectList() {
+		return projectList;
+	}
+
+	/**
+	 * @param projectList the projectList to set
+	 */
+	public void setProjectList(List<Project> projectList) {
+		this.projectList = projectList;
+	}
+
+	/**
+	 * @return the projectDao
+	 */
+	public ProjectDao getProjectDao() {
+		return projectDao;
+	}
+
+	/**
+	 * @param projectDao the projectDao to set
+	 */
+	public void setProjectDao(ProjectDao projectDao) {
+		this.projectDao = projectDao;
 	}
 
 	public static List<Article> getArticleList() {
@@ -71,7 +105,7 @@ public class IndexAction extends ActionSupport {
 			articleList.add(article);
 		}
 		lastUpdateTime = System.currentTimeMillis();
-		LOG.info("update article list", null);
+		LOG.info("update article list", new String[0]);
 	}
 	
 	/**
@@ -97,6 +131,18 @@ public class IndexAction extends ActionSupport {
 		if (System.currentTimeMillis() - lastUpdateTime > PERIOD) {
 			updateArticleList();
 		}
+		listProject();
 		return super.execute();
+	}
+	
+	/**
+	 * 列出最新6个project
+	 * 
+	 * @return
+	 * @throws Exception
+	 */
+	public String listProject() throws Exception {
+		setProjectList(projectDao.listLast6());
+		return SUCCESS;
 	}
 }

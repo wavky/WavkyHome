@@ -4,9 +4,11 @@
 	"http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
-
 	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+	<constant name="struts.mapper.alwaysSelectFullNamespace"
+		value="true" />
 	<constant name="struts.ognl.allowStaticMethodAccess" value="true" />
+	<constant name="struts.multipart.saveDir" value="/project_snapshot" />
 	<constant name="struts.devMode" value="true" />
 	<constant name="struts.serve.static.browserCache" value="false" />
 	<constant name="struts.i18n.encoding" value="UTF-8" />
@@ -15,24 +17,95 @@
 
 	<package name="404" extends="struts-default">
 		<action name="*">
-			<result>/not_found.jsp</result>
+			<result type="redirect">/404</result>
 		</action>
+
 	</package>
 	<package name="root" namespace="/" extends="struts-default">
-		<action name="" class="action.IndexAction">
+		<action name="404">
+			<result>/not_found.html</result>
+		</action>
+		<action name="">
+			<result>/welcome.jsp</result>
+		</action>
+		<action name="index" class="index">
 			<result>/index.jsp</result>
 		</action>
-		<action name="index" class="action.IndexAction">
-			<result>/index.jsp</result>
-		</action>
-		<action name="lab" class="action.LabAction">
+		<action name="lab" class="lab" method="listProject">
 			<result>/lab.jsp</result>
 		</action>
-		<action name="interface" class="action.InterfaceAction">
+		<action name="api" class="interface">
 			<result>/interface.jsp</result>
 		</action>
 		<action name="master">
 			<result>/master.jsp</result>
+		</action>
+		<action name="login" class="login">
+			<result>/login.jsp</result>
+		</action>
+		<action name="sendLogin" class="login" method="login">
+			<result name="success" type="redirect">${#session.refererUrl}</result>
+			<result name="error">/login.jsp</result>
+		</action>
+		<action name="logout" class="login" method="logout">
+			<result type="redirect">${refererUrl}</result>
+		</action>
+	</package>
+
+	<package name="masterLevel" namespace="/" extends="struts-default">
+		<interceptors>
+			<interceptor name="masterCheckInterceptor" class="action.MasterCheckInterceptor" />
+			<interceptor-stack name="masterCheckStack">
+				<interceptor-ref name="defaultStack" />
+				<interceptor-ref name="masterCheckInterceptor" />
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="masterCheckStack" />
+		<global-results>
+			<result name="login" type="chain">login</result>
+		</global-results>
+
+		<action name="updateAccount" class="updateAccount">
+			<result>/account.jsp</result>
+		</action>
+		<action name="sendUpdateAccount" class="updateAccount" method="update">
+			<result type="redirect">/master</result>
+		</action>
+		<action name="lab_edit" class="lab" method="listProject">
+			<result>/lab_edit.jsp</result>
+		</action>
+		<action name="addProject" class="lab" method="addProject">
+			<interceptor-ref name="fileUpload">
+				<param name="allowedExtensions">jpg,png</param>
+				<param name="allowedTypes">image/png,image/jpeg</param>
+				<param name="maximumSize">2097152</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack" />
+			<result type="redirect">/lab_edit</result>
+			<result name="input" type="chain">lab_edit</result>
+		</action>
+		<action name="deleteProject" class="lab" method="deleteProject">
+			<result type="redirect">/lab_edit</result>
+			<result name="error" type="chain">lab_edit</result>
+		</action>
+		<action name="interface_edit" class="interface">
+			<result>/interface_edit.jsp</result>
+		</action>
+		<action name="addInterface" class="interface" method="addInterface">
+			<result type="redirect">/interface_edit</result>
+			<result name="error" type="chain">interface_edit</result>
+		</action>
+		<action name="deleteInterface" class="interface" method="deleteInterface">
+			<result type="redirect">/interface_edit</result>
+			<result name="error" type="chain">interface_edit</result>
+		</action>
+	</package>
+	<package name="api" namespace="/api" extends="json-default">
+		<action name="helloWorld" class="helloWorldApi">
+			<result type="json">
+				<param name="noCache">true</param>
+				<param name="contentType">text/html</param>
+			</result>
 		</action>
 	</package>
 </struts>

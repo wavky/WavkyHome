@@ -45,7 +45,6 @@ a:active {color: #999;text-decoration: none;}
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
 	border-radius: 3px;
-	behavior: url(ie-css3.htc);
 	overflow:hidden;
 }
 
@@ -54,6 +53,5 @@ a:active {color: #999;text-decoration: none;}
 	-moz-border-radius: 5em;
 	border-radius: 5em;
 	position:relative;
-	behavior: url(ie-css3.htc);
 	z-index:99999;
 }

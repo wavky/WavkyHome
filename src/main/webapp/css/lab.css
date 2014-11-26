@@ -1,40 +1,52 @@
 @charset "utf-8";
+
 div#projectList ul {
 	line-height: 2em;
 	margin: 0 20px;
 	font-size: 1.2em;
 }
+
 div#projectList {
 	margin-bottom: 25px;
 }
+
 div#projectList ul {
 	list-style-type: none;
 	text-align: center;
 	margin-top: 25px;
 }
+
 div#projectList ul li {
 	display: inline-block;
+	*display: inline;
+	*zoom: 1;
 	vertical-align: top;
 	text-align: center;
 	margin: 20px 10px;
 }
-div#projectList a:link, div#projectList a:visited{
+
+div#projectList a:link, div#projectList a:visited {
 	color: #eee;
 }
-div#projectList a:hover, div#projectList a p:hover{
-	color:#999;
+
+div#projectList a:hover, div#projectList a p:hover {
+	color: #999;
 }
+
 div#projectList li div.projectUnit {
 	background-color: #252525;
 	width: 266.8px;
 }
+
 div#projectList li div.snapshot {
 	height: 150px;
 }
-div#projectList li div.snapshot > img {
+
+div#projectList li div.snapshot>img {
 	width: 266.8px;
 	height: 150px;
 }
+
 div#projectList li div.platformMark {
 	position: relative;
 	/* 右下角 
@@ -42,11 +54,12 @@ div#projectList li div.platformMark {
 	top:-44px;
 	right:-15px;
 	*/
-	
 	/* 左上角 */
 	text-align: left;
 	top: -170px;
 	left: -10px;
 }
+
 div#projectList li p {
+	
 }
