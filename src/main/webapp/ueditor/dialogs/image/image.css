@@ -633,6 +633,10 @@
 
 
 /* 图片管理样式 */
+/* 取消在线管理功能显示 */
+#onlineTab{
+	display: none;
+}
 #online {
     width: 100%;
     height: 336px;
