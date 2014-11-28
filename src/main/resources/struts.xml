@@ -25,7 +25,10 @@
 		<action name="404">
 			<result>/not_found.html</result>
 		</action>
-		<action name="">
+		<action name="" class="index">
+			<result>/index.jsp</result>
+		</action>
+		<action name="welcome">
 			<result>/welcome.jsp</result>
 		</action>
 		<action name="index" class="index">
