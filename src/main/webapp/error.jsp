@@ -6,6 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Sorry</title>
+<script type="text/javascript" charset="utf-8" src="js/common.js"></script>
 <link rel="icon" type="image/x-icon" href="image/favicon.ico" />
 </head>
 <body>

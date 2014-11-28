@@ -9,6 +9,7 @@
 <title>Hello, world of Website!</title>
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 <link rel="stylesheet" type="text/css" href="css/image_page.css" />
+<script type="text/javascript" charset="utf-8" src="js/common.js"></script>
 <script type="text/javascript" charset="utf-8" src="js/fullscreenImg.js"></script>
 <link rel="icon" type="image/x-icon" href="image/favicon.ico" />
 </head>

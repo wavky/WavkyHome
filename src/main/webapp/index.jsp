@@ -10,6 +10,7 @@
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 <link rel="stylesheet" type="text/css" href="css/common_frame.css" />
 <link rel="stylesheet" type="text/css" href="css/index.css" />
+<script type="text/javascript" charset="utf-8" src="js/common.js"></script>
 <link rel="icon" type="image/x-icon" href="image/favicon.ico" />
 </head>
 <body>
