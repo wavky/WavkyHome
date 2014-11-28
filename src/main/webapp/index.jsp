@@ -71,13 +71,13 @@
 										<img src="<s:property value='snapshotAddr' />" />
 										<div class="platformMark">
 											<s:if test="type=='android'">
-												<img src="image/android.png">
+												<img src="image/android.png" />
 											</s:if>
 											<s:if test="type=='web'">
-												<img src="image/ie.png">
+												<img src="image/ie.png" />
 											</s:if>
 											<s:if test="type=='window'">
-												<img src="image/window.png">
+												<img src="image/window.png" />
 											</s:if>
 										</div>
 									</div>
@@ -95,7 +95,7 @@
 				</h1>
 				<ul>
 					<s:iterator value="articleList">
-						<li><a href=<s:property value="linkAddr"/>><s:property
+						<li><a href="<s:property value='linkAddr' />" ><s:property
 									value="title" /></a></li>
 					</s:iterator>
 				</ul>
