@@ -236,7 +236,6 @@ public class LabAction extends ActionSupport {
 		final String snapshotPath = saveSnapshot();
 		Project project = new Project();
 		project.setTitle(title);
-		LOG.error("TITLE:"+title,null );
 		project.setType(type);
 		project.setLinkAddr(linkAddr);
 		project.setSnapshotAddr(snapshotPath);

@@ -50,6 +50,8 @@
 		<action name="logout" class="login" method="logout">
 			<result type="redirect">${refererUrl}</result>
 		</action>
+		<action name="testEditor" class="testEditor">
+		</action>
 	</package>
 
 	<package name="masterLevel" namespace="/" extends="struts-default">

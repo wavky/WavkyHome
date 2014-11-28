@@ -16,7 +16,7 @@ import dao.interfaces.UserDao;
  * @author wavky.wand
  *
  */
-public class UpdateAccount extends ActionSupport {
+public class UpdateAccountAction extends ActionSupport {
 
 	private static final long serialVersionUID = 1L;
 

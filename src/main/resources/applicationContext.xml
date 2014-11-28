@@ -22,8 +22,9 @@
 		p:interfaceDao-ref="interfaceDao" />
 	<bean id="login" class="action.LoginAction" scope="prototype"
 		p:userDao-ref="userDao" />
-	<bean id="updateAccount" class="action.UpdateAccount" scope="prototype"
+	<bean id="updateAccount" class="action.UpdateAccountAction" scope="prototype"
 		p:userDao-ref="userDao" />
+	<bean id="testEditor" class="action.TestUEditorAction" scope="prototype" />
 	<!-- APIS -->
 	<bean id="helloWorldApi" class="action.api.HelloWorld" scope="prototype" />
 	<!-- HIBERNATE -->

@@ -26,7 +26,7 @@ public class UrlLimitFilter extends StrutsPrepareAndExecuteFilter {
 		HttpServletRequest request = (HttpServletRequest) req;
 		String url = request.getRequestURI();
 		if (url.contains("/ueditor/jsp/")) {
-			// 跳过Struts2的数据过滤机制，调用下一级过滤器
+			// 跳过Struts2的数据过滤机制，调用下一级过滤器，避免上传文件域被Struts消除
 			chain.doFilter(req, res);
 			return;
 		}
