@@ -26,7 +26,16 @@ public class UrlLimitFilter extends StrutsPrepareAndExecuteFilter {
 		HttpServletRequest request = (HttpServletRequest) req;
 		String url = request.getRequestURI();
 		if (url.toLowerCase().endsWith(".jsp")) {
-			System.out.println("禁止直接请求jsp");
+			StringBuilder sb = new StringBuilder();
+			sb.append(request.getRemoteAddr());
+			sb.append(" : ");
+			sb.append(request.getMethod());
+			sb.append(" ");
+			sb.append(request.getRequestURI());
+			sb.append(" ");
+			sb.append(request.getProtocol());
+			sb.append(" : 禁止直接请求jsp");
+			System.out.println(sb.toString());
 			// 禁止直接请求jsp，内部转发输出404页面，不修改URL
 			request.getRequestDispatcher("/not_found.html").forward(req, res);
 			// 重定向到404页面，效果与请求.html/.asp等资源时不一致

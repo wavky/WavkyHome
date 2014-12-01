@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="renderer" content="webkit" />
 <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
-<meta name="keywords" content="Wavky, Wavky Wand" />
+<meta name="keywords" content="Wavky, Wavky Wand, WavkyHome" />
 <meta http-equiv="cache-control" content="max-age=60" />
 <base target="_blank" />
 <title><s:text name="titleHome" /></title>
