@@ -43,14 +43,21 @@
 			</div>
 			<div class="logo" id="logoDIV">
 				<img src="image/logo_lab.png" />
+				<s:if test='#session.isMaster'>
+					<a href="logout" target="_self" title="exit"><img
+						src="image/logout.png" /></a>
+				</s:if>
+				<s:else>
+					<a href="login" target="_self" title="console"><img
+						src="image/login.png" /></a>
+				</s:else>
 			</div>
 			<div class="navigation" id="navigationDIV">
 				<ul id="navigationLIST">
 					<li><a class="radius" href="index" target="_self">Home</a></li>
 					<li><a class="currentTab radius" href="#" target="_self">Lab</a>
 					</li>
-					<li><a class="radius" href="interface" target="_self">Interface</a>
-					</li>
+					<li><a class="radius" href="api" target="_self">API</a></li>
 					<li><a class="radius" href="master" target="_self">Master
 							Info</a></li>
 				</ul>
@@ -113,7 +120,7 @@
 					</table>
 					<div id="ueditorDiv">
 						<script id="editor" name="introduction" type="text/plain"
-							style="width:100%;height:500px;"><s:property value="introduction" escape="false" /></script>
+							style="width:100%;height:400px;"><s:property value="introduction" escape="false" /></script>
 					</div>
 					<script type="text/javascript">
 						//实例化编辑器

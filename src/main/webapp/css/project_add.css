@@ -47,6 +47,8 @@ div#addProject form button#submit,div#addProject form a#cancel img {
 div#addProject form div#ueditorDiv{
 	width: 90%;
 	margin:25px auto 20px;
+	background-color: #353535;
+	color: black;
 }
 
 div#addProject form div#buttonDiv{

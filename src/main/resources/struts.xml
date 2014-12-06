@@ -84,9 +84,6 @@
 		<action name="sendUpdateAccount" class="updateAccount" method="update">
 			<result type="redirect">/master</result>
 		</action>
-		<action name="lab_edit" class="lab" method="listProjects">
-			<result>/lab_edit.jsp</result>
-		</action>
 		<action name="projectManager" class="lab" method="listProjects">
 			<result>/project_manager.jsp</result>
 		</action>

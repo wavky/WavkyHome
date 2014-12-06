@@ -33,7 +33,7 @@
 				</div>
 			</div>
 			<div class="logo" id="logoDIV">
-				<img src="image/logo.png" />
+				<img src="image/logo_lab.png" />
 				<s:if test='#session.isMaster'>
 					<a href="logout" target="_self" title="exit"><img
 						src="image/logout.png" /></a>
