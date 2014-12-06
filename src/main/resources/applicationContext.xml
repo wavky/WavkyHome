@@ -17,7 +17,8 @@
 	<bean id="index" class="action.IndexAction" scope="prototype"
 		p:projectDao-ref="projectDao" />
 	<bean id="lab" class="action.LabAction" scope="prototype"
-		p:projectDao-ref="projectDao" p:savePathResource="classpath:../../project_snapshot" />
+	p:projectDao-ref="projectDao" p:snapshotSavePathResource="classpath:../../project_snapshot"
+	p:projectFileSavePathResource="classpath:../../project_file" />
 	<bean id="interface" class="action.InterfaceAction" scope="prototype"
 		p:interfaceDao-ref="interfaceDao" />
 	<bean id="login" class="action.LoginAction" scope="prototype"

@@ -9,7 +9,7 @@
 <title><s:text name="titleLab" /></title>
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 <link rel="stylesheet" type="text/css" href="css/common_frame.css" />
-<link rel="stylesheet" type="text/css" href="css/lab.css" />
+<link rel="stylesheet" type="text/css" href="css/project_manager.css" />
 <link rel="icon" type="image/x-icon" href="image/favicon.ico" />
 </head>
 <body>
@@ -58,23 +58,30 @@
 		<!-- 页面内容 -->
 		<div id="content">
 			<s:if test='#session.isMaster'>
-				<a href="projectManager" target="_self"><div id="edit">编辑模式</div></a>
+				<a href="lab">
+					<div id="edit">退出编辑</div>
+				</a>
 			</s:if>
 			<div id="projectList">
 				<h1>
 					<s:text name="project" />
 				</h1>
 				<ul>
+					<li><a href="newProject" title="new">
+							<div id="addProjectUnit">
+								<img src="image/add.png" />
+							</div>
+					</a></li>
 					<s:iterator value="projectList">
-						<li><s:if test="type=='web'">
-								<a href="<s:property value='webLinkAddr' />" target="_blank">
-							</s:if> <s:else>
-								<a href="showProject?targetProjectId=<s:property value='id'/>"
-									target="_self">
-							</s:else>
+						<li>
 							<div class="projectUnit">
+								<a href="editProject?targetProjectId=<s:property value='id'/>"
+									title="edit">
+									<div class="editProject">
+										<img src="image/editProject.png" />
+									</div>
+								</a>
 								<div class="snapshot">
-									<img src="<s:property value='snapshotAddr' />" />
 									<div class="platformMark">
 										<s:if test="type=='android'">
 											<img src="image/android.png">
@@ -86,11 +93,20 @@
 											<img src="image/window.png">
 										</s:if>
 									</div>
+									<a
+										href="deleteProject?targetProjectId=<s:property value='id'/>"
+										title="delete">
+										<div class="deleteProjectDiv">
+											<img src="image/delete.png" />
+										</div>
+									</a> <img class="snapshotImg"
+										src="<s:property value='snapshotAddr' />" />
 								</div>
 								<p class="title">
 									<s:property value='title' />
 								</p>
-							</div> </a></li>
+							</div>
+						</li>
 					</s:iterator>
 				</ul>
 			</div>

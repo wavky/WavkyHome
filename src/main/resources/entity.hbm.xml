@@ -15,11 +15,18 @@
 		<id name="id">
 			<generator class="native" />
 		</id>
-		<property name="title" not-null="true" length="100" />
-		<property name="type" not-null="true" length="30" />
-		<property name="linkAddr" not-null="true" length="1024" />
-		<property name="snapshotAddr" not-null="true" length="1024" />
-		<property name="addTime" not-null="true" />
+		<property name="title" />
+		<property name="type" />
+		<property name="webLinkAddr" />
+		<property name="snapshotAddr" />
+		<property name="sourceLinkAddr" />
+		<property name="projectFileAddr" />
+		<property name="version" />
+		<property name="price" />
+		<property name="introduction" />
+		<property name="releaseDate" />
+		<property name="updateTime" />
+		<property name="addTime" />
 	</class>
 	<class name="Interface" table="interface">
 		<id name="id">

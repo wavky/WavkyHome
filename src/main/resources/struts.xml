@@ -8,7 +8,8 @@
 	<constant name="struts.mapper.alwaysSelectFullNamespace"
 		value="true" />
 	<constant name="struts.ognl.allowStaticMethodAccess" value="true" />
-	<constant name="struts.multipart.saveDir" value="/project_snapshot" />
+	<constant name="struts.multipart.saveDir" value="/uploadTemp" />
+	<constant name="struts.multipart.maxSize" value="52428800" />
 	<constant name="struts.devMode" value="true" />
 	<constant name="struts.serve.static.browserCache" value="false" />
 	<constant name="struts.i18n.encoding" value="UTF-8" />
@@ -31,8 +32,20 @@
 		<action name="index" class="index">
 			<result>/index.jsp</result>
 		</action>
-		<action name="lab" class="lab" method="listProject">
+		<action name="lab" class="lab" method="listProjects">
 			<result>/lab.jsp</result>
+		</action>
+		<action name="showProject" class="lab" method="listTargetProjectInfo">
+			<result>/project_detail.jsp</result>
+		</action>
+		<action name="downloadProject" class="lab" method="checkProjectFileAddr">
+			<result name="success" type="stream">
+				<param name="contentType">application/octet-stream</param>
+				<param name="inputName">downloadProjectFile</param>
+				<param name="contentDisposition">attachment;filename="${downloadFileName}"</param>
+				<param name="bufferSize">4096</param>
+			</result>
+			<result name="error">/404</result>
 		</action>
 		<action name="api" class="interface">
 			<result>/interface.jsp</result>
@@ -49,8 +62,6 @@
 		</action>
 		<action name="logout" class="login" method="logout">
 			<result type="redirect">${refererUrl}</result>
-		</action>
-		<action name="testEditor" class="testEditor">
 		</action>
 	</package>
 
@@ -73,22 +84,30 @@
 		<action name="sendUpdateAccount" class="updateAccount" method="update">
 			<result type="redirect">/master</result>
 		</action>
-		<action name="lab_edit" class="lab" method="listProject">
+		<action name="lab_edit" class="lab" method="listProjects">
 			<result>/lab_edit.jsp</result>
 		</action>
-		<action name="addProject" class="lab" method="addProject">
+		<action name="projectManager" class="lab" method="listProjects">
+			<result>/project_manager.jsp</result>
+		</action>
+		<action name="newProject" class="lab" method="initNewProject">
+			<result>/project_edit.jsp</result>
+		</action>
+		<action name="editProject" class="lab" method="listTargetProjectInfo">
+			<result>/project_edit.jsp</result>
+			<result name="error" type="chain">projectManager</result>
+		</action>
+		<action name="saveProject" class="lab" method="saveProject">
 			<interceptor-ref name="fileUpload">
-				<param name="allowedExtensions">jpg,png</param>
-				<param name="allowedTypes">image/png,image/jpeg</param>
-				<param name="maximumSize">2097152</param>
+				<param name="maximumSize">52428800</param>
 			</interceptor-ref>
 			<interceptor-ref name="defaultStack" />
-			<result type="redirect">/lab_edit</result>
-			<result name="input" type="chain">lab_edit</result>
+			<result type="redirect">/projectManager</result>
+			<result name="input" type="chain">newProject</result>
 		</action>
 		<action name="deleteProject" class="lab" method="deleteProject">
-			<result type="redirect">/lab_edit</result>
-			<result name="error" type="chain">lab_edit</result>
+			<result type="redirect">/projectManager</result>
+			<result name="error" type="chain">projectManager</result>
 		</action>
 		<action name="interface_edit" class="interface">
 			<result>/interface_edit.jsp</result>

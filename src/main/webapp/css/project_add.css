@@ -1,0 +1,57 @@
+@charset "utf-8";
+
+div#addProject {
+	margin: 30px auto;
+	min-width: 620px;
+	margin-bottom:25px;
+}
+
+div#addProject form {
+	text-align: center;
+}
+
+div#addProject form table {
+	line-height: 2em;
+	*zoom: 1;
+	vertical-align: middle;
+	margin:0 auto;
+}
+
+div#addProject form table td {
+	text-align: left;
+}
+
+div#addProject form table td:first-child {
+	text-align: center;
+}
+
+div#addProject form input.typeRadio {
+	margin-left: 10px;
+	margin-right: 5px;
+}
+
+div#addProject form input.text {
+	width: 300px;
+}
+
+div#addProject form button#submit,div#addProject form a#cancel img {
+	*zoom: 1;
+	vertical-align: middle;
+	background-color: transparent;
+	border: none;
+	margin: 0px 10px;
+	cursor: pointer;
+	padding:0;
+}
+
+div#addProject form div#ueditorDiv{
+	width: 90%;
+	margin:25px auto 20px;
+}
+
+div#addProject form div#buttonDiv{
+	width:506px;
+	margin:20px auto;
+	position:relative;
+	left:83px;
+}

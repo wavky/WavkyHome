@@ -6,8 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-<div id="absoluteFooter">
-为获得最佳显示效果，请使用 IE9 或 Firefox / Chrome 等非IE内核最新版本浏览器 | 备案号：123456
-</div>
+	<div id="absoluteFooter">为获得最佳显示效果，建议使用 IE9 或 Firefox / Chrome
+		等非IE内核最新版本浏览器 | 备案号：123456</div>
 </body>
 </html>

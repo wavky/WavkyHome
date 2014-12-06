@@ -48,8 +48,7 @@
 					<li><a class="currentTab radius" href="#" target="_self">Home</a>
 					</li>
 					<li><a class="radius" href="lab" target="_self">Lab</a></li>
-					<li><a class="radius" href="api" target="_self">API</a>
-					</li>
+					<li><a class="radius" href="api" target="_self">API</a></li>
 					<li><a class="radius" href="master" target="_self">Master
 							Info</a></li>
 				</ul>
@@ -64,27 +63,31 @@
 				</h1>
 				<ul>
 					<s:iterator value="projectList">
-						<li><a href="<s:property value='linkAddr' />">
-								<div class="recentlyUnit">
-									<div class="snapshot">
-										<img src="<s:property value='snapshotAddr' />" />
-										<div class="platformMark">
-											<s:if test="type=='android'">
-												<img src="image/android.png">
-											</s:if>
-											<s:if test="type=='web'">
-												<img src="image/ie.png">
-											</s:if>
-											<s:if test="type=='window'">
-												<img src="image/window.png">
-											</s:if>
-										</div>
+						<li><s:if test="type=='web'">
+								<a href="<s:property value='webLinkAddr' />" target="_blank">
+							</s:if> <s:else>
+								<a href="showProject?targetProjectId=<s:property value='id'/>"
+									target="_self">
+							</s:else>
+							<div class="recentlyUnit">
+								<div class="snapshot">
+									<img src="<s:property value='snapshotAddr' />" />
+									<div class="platformMark">
+										<s:if test="type=='android'">
+											<img src="image/android.png">
+										</s:if>
+										<s:if test="type=='web'">
+											<img src="image/ie.png">
+										</s:if>
+										<s:if test="type=='window'">
+											<img src="image/window.png">
+										</s:if>
 									</div>
-									<p class="title">
-										<s:property value='title' />
-									</p>
 								</div>
-						</a></li>
+								<p class="title">
+									<s:property value='title' />
+								</p>
+							</div> </a></li>
 					</s:iterator>
 				</ul>
 			</div>
