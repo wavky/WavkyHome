@@ -9,7 +9,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
 <meta name="keywords" content="Wavky, Wavky Wand, WavkyHome" />
 <meta http-equiv="cache-control" content="max-age=60" />
-<base target="_blank" />
+<base target="_self" />
 <title><s:text name="titleLab" /></title>
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 <link rel="stylesheet" type="text/css" href="css/common_frame.css" />
@@ -38,7 +38,7 @@
 				</div>
 			</div>
 			<div class="logo" id="logoDIV">
-				<img src="image/logo.png" />
+				<img src="image/logo_lab.png" />
 				<s:if test='#session.isMaster'>
 					<a href="logout" target="_self" title="exit"><img
 						src="image/logout.png" /></a>
@@ -64,7 +64,7 @@
 		<!-- 页面内容 -->
 		<div id="content">
 			<s:if test='#session.isMaster'>
-				<a href="lab_edit" target="_self"><div id="edit">编辑模式</div></a>
+				<a href="projectManager" target="_self"><div id="edit">编辑模式</div></a>
 			</s:if>
 			<div id="projectList">
 				<h1>
@@ -72,7 +72,12 @@
 				</h1>
 				<ul>
 					<s:iterator value="projectList">
-						<li><a href="<s:property value='linkAddr' />">
+						<li><s:if test="type=='web'">
+								<a href="<s:property value='webLinkAddr' />" target="_blank">
+							</s:if> <s:else>
+								<a href="showProject?targetProjectId=<s:property value='id'/>"
+									target="_self">
+							</s:else>
 								<div class="projectUnit">
 									<div class="snapshot">
 										<img src="<s:property value='snapshotAddr' />" />

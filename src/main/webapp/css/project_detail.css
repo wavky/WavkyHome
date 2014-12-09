@@ -1,0 +1,78 @@
+@charset "utf-8";
+
+div#projectInfo {
+	margin: 3% 5%;
+	min-width: 540px;
+}
+
+div#projectInfo {
+	text-align: left;
+}
+
+div#projectTitle{
+	margin-bottom:25px;
+}
+
+div#snapshot {
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+	vertical-align: top;
+	margin:0 30px 30px;
+	border:none;
+	overflow: hidden;
+	box-shadow: 0px 0px 15px 5px #B2A36A;
+}
+
+div#snapshot img#snapshotImg{
+	border:none;
+	width: 267px;
+	height: 150px;
+}
+
+div#infoList {
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+	text-align: left;
+	vertical-align: top;
+	line-height: 1.7em;
+	font-size: 1.3em;
+	margin-left: 30px;
+}
+
+div#infoList table{
+	border-collapse : collapse;
+}
+
+div#infoList table td{
+	border:solid 1px #252525;
+	background-color: #393939;
+	padding:0 10px;
+}
+
+div#infoList table td:first-child {
+	color: #FFCC66;
+	text-align:right;
+}
+
+div#infoList table tr#buttonRow td{
+	text-align:center;
+	padding-top:15px;
+	border: none;
+	background-color:transparent;
+}
+
+div#infoList a#downloadLink,a#sourceLink{
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+	margin:0 10px;
+	padding:10px 0;
+}
+
+div#introduction {
+	margin: 0 5% 20px;
+	padding: 20px;
+	background-color: #393939;
+}

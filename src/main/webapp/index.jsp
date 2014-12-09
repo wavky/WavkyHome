@@ -69,7 +69,12 @@
 				</h1>
 				<ul>
 					<s:iterator value="projectList">
-						<li><a href="<s:property value='linkAddr' />">
+						<li><s:if test="type=='web'">
+								<a href="<s:property value='webLinkAddr' />" target="_blank">
+							</s:if> <s:else>
+								<a href="showProject?targetProjectId=<s:property value='id'/>"
+									target="_self">
+							</s:else>
 								<div class="recentlyUnit">
 									<div class="snapshot">
 										<img src="<s:property value='snapshotAddr' />" />

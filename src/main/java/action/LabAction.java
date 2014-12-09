@@ -4,6 +4,13 @@
 package action;
 
 import java.io.File;
+import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -29,10 +36,20 @@ import dao.interfaces.ProjectDao;
 public class LabAction extends ActionSupport {
 
 	private static final long serialVersionUID = 1L;
+	private static final SimpleDateFormat dateHTMLReadFormater = new SimpleDateFormat(
+			"yyyy-MM-dd");
+	private static final SimpleDateFormat dateHTMLWriteFormater = new SimpleDateFormat(
+			"yyyy.MM.dd");
+	private static final SimpleDateFormat datetimeHTMLWriteFormater = new SimpleDateFormat(
+			"yyyy.MM.dd HH:mm:ss");
+	private static final SimpleDateFormat dateFileNameFormater = new SimpleDateFormat(
+			"yyyyMMdd");
+	private static final DecimalFormat decimalFormater = new DecimalFormat(
+			"#,##0.00");
 
 	private String title;
 	private String type;
-	private String linkAddr;
+	private String webLinkAddr;
 	/**
 	 * 快照预览图片
 	 */
@@ -42,17 +59,58 @@ public class LabAction extends ActionSupport {
 	/**
 	 * 快照保存路径
 	 */
-	private Resource savePathResource;
+	private Resource snapshotSavePathResource;
 	/**
-	 * 绝对路径
+	 * 绝对路径，Resource注入时联动设置
 	 */
-	private String savePath;
+	private String snapshotSavePath;
+
+	private String releaseDateForEditing;
+	private String releaseDateForShowing;
+	private String updatingDate;
+	private String sourceLinkAddr;
+
+	/**
+	 * 仅用于listTargetProjectInfo展示
+	 */
+	private String snapshotAddr;
+	private String downloadAddr;
+	private String downloadFileName;
+	private String version;
+	private float price;
+	private String priceForShowing;
+	private String introduction;
+
+	/**
+	 * 项目可执行文件上传
+	 */
+	private File projectFile;
+	private String projectFileContentType;
+	private String projectFileFileName;
+	/**
+	 * 项目可执行文件保存路径
+	 */
+	private Resource projectFileSavePathResource;
+	/**
+	 * 绝对路径，Resource注入时联动设置
+	 */
+	private String projectFileSavePath;
+
 	private List<Project> projectList;
 	/**
-	 * 需要删除的project的id
+	 * 需要处理的project的id（删除、修改）
 	 */
-	private int deleteProjectId;
+	private int targetProjectId;
 	private ProjectDao projectDao;
+
+	private static final String rootPath;
+
+	static {
+		ActionContext ac = ActionContext.getContext();
+		ServletContext sc = (ServletContext) ac
+				.get(ServletActionContext.SERVLET_CONTEXT);
+		rootPath = sc.getRealPath("/");
+	}
 
 	/**
 	 * @return the title
@@ -85,18 +143,18 @@ public class LabAction extends ActionSupport {
 	}
 
 	/**
-	 * @return the linkAddr
+	 * @return the webLinkAddr
 	 */
-	public String getLinkAddr() {
-		return linkAddr;
+	public String getWebLinkAddr() {
+		return webLinkAddr;
 	}
 
 	/**
-	 * @param linkAddr
-	 *            the linkAddr to set
+	 * @param webLinkAddr
+	 *            the webLinkAddr to set
 	 */
-	public void setLinkAddr(String linkAddr) {
-		this.linkAddr = linkAddr;
+	public void setWebLinkAddr(String webLinkAddr) {
+		this.webLinkAddr = webLinkAddr;
 	}
 
 	/**
@@ -145,40 +203,272 @@ public class LabAction extends ActionSupport {
 	}
 
 	/**
-	 * @return the savePathResource
+	 * @return the snapshotSavePathResource
 	 */
-	public Resource getSavePathResource() {
-		return savePathResource;
+	public Resource getSnapshotSavePathResource() {
+		return snapshotSavePathResource;
 	}
 
 	/**
-	 * @param savePathResource
-	 *            the savePathResource to set
+	 * @param snapshotSavePathResource
+	 *            the snapshotSavePathResource to set
 	 */
-	public void setSavePathResource(Resource savePathResource) {
-		this.savePathResource = savePathResource;
+	public void setSnapshotSavePathResource(Resource snapshotSavePathResource) {
+		this.snapshotSavePathResource = snapshotSavePathResource;
 		try {
-			setSavePath(savePathResource.getFile().getCanonicalPath());
+			setSnapshotSavePath(snapshotSavePathResource.getFile()
+					.getCanonicalPath());
 		} catch (Exception e) {
 			LOG.error("save path", e, new String[0]);
 		}
 	}
 
 	/**
-	 * @return the savePath
+	 * @return the snapshotSavePath
 	 */
-	public String getSavePath() {
-		return savePath;
+	public String getSnapshotSavePath() {
+		return snapshotSavePath;
 	}
 
 	/**
-	 * Automatic invoked by {@link #setSavePathResource(Resource)}
-	 * 
-	 * @param savePath
-	 *            the savePath to set
+	 * @param snapshotSavePath
+	 *            the snapshotSavePath to set
 	 */
-	public void setSavePath(String savePath) {
-		this.savePath = savePath;
+	public void setSnapshotSavePath(String snapshotSavePath) {
+		this.snapshotSavePath = snapshotSavePath;
+	}
+
+	/**
+	 * @return the projectFile
+	 */
+	public File getProjectFile() {
+		return projectFile;
+	}
+
+	/**
+	 * @param projectFile
+	 *            the projectFile to set
+	 */
+	public void setProjectFile(File projectFile) {
+		this.projectFile = projectFile;
+	}
+
+	/**
+	 * @return the projectFileContentType
+	 */
+	public String getProjectFileContentType() {
+		return projectFileContentType;
+	}
+
+	/**
+	 * @param projectFileContentType
+	 *            the projectFileContentType to set
+	 */
+	public void setProjectFileContentType(String projectFileContentType) {
+		this.projectFileContentType = projectFileContentType;
+	}
+
+	/**
+	 * @return the projectFileFileName
+	 */
+	public String getProjectFileFileName() {
+		return projectFileFileName;
+	}
+
+	/**
+	 * @param projectFileFileName
+	 *            the projectFileFileName to set
+	 */
+	public void setProjectFileFileName(String projectFileFileName) {
+		this.projectFileFileName = projectFileFileName;
+	}
+
+	/**
+	 * @return the projectFileSavePathResource
+	 */
+	public Resource getProjectFileSavePathResource() {
+		return projectFileSavePathResource;
+	}
+
+	/**
+	 * @param projectFileSavePathResource
+	 *            the projectFileSavePathResource to set
+	 */
+	public void setProjectFileSavePathResource(
+			Resource projectFileSavePathResource) {
+		this.projectFileSavePathResource = projectFileSavePathResource;
+		try {
+			setProjectFileSavePath(projectFileSavePathResource.getFile()
+					.getCanonicalPath());
+		} catch (Exception e) {
+			LOG.error("project save path", e, new String[0]);
+		}
+	}
+
+	/**
+	 * @return the projectFileSavePath
+	 */
+	public String getProjectFileSavePath() {
+		return projectFileSavePath;
+	}
+
+	/**
+	 * @param projectFileSavePath
+	 *            the projectFileSavePath to set
+	 */
+	public void setProjectFileSavePath(String projectFileSavePath) {
+		this.projectFileSavePath = projectFileSavePath;
+	}
+
+	/**
+	 * @return the releaseDateForEditing
+	 */
+	public String getReleaseDateForEditing() {
+		return releaseDateForEditing;
+	}
+
+	/**
+	 * @param releaseDateForEditing
+	 *            the releaseDateForEditing to set
+	 */
+	public void setReleaseDateForEditing(String releaseDateForEditing) {
+		this.releaseDateForEditing = releaseDateForEditing;
+	}
+
+	public String getReleaseDateForShowing() {
+		return releaseDateForShowing;
+	}
+
+	public void setReleaseDateForShowing(String releaseDateForShowing) {
+		this.releaseDateForShowing = releaseDateForShowing;
+	}
+
+	/**
+	 * @return the updatingDate
+	 */
+	public String getUpdatingDate() {
+		return updatingDate;
+	}
+
+	/**
+	 * @param updatingDate
+	 *            the updatingDate to set
+	 */
+	public void setUpdatingDate(String updatingDate) {
+		this.updatingDate = updatingDate;
+	}
+
+	/**
+	 * @return the sourceLinkAddr
+	 */
+	public String getSourceLinkAddr() {
+		return sourceLinkAddr;
+	}
+
+	/**
+	 * @param sourceLinkAddr
+	 *            the sourceLinkAddr to set
+	 */
+	public void setSourceLinkAddr(String sourceLinkAddr) {
+		this.sourceLinkAddr = sourceLinkAddr;
+	}
+
+	/**
+	 * @return the snapshotAddr
+	 */
+	public String getSnapshotAddr() {
+		return snapshotAddr;
+	}
+
+	/**
+	 * @param snapshotAddr
+	 *            the snapshotAddr to set
+	 */
+	public void setSnapshotAddr(String snapshotAddr) {
+		this.snapshotAddr = snapshotAddr;
+	}
+
+	/**
+	 * @return the downloadAddr
+	 */
+	public String getDownloadAddr() {
+		return downloadAddr;
+	}
+
+	/**
+	 * @param downloadAddr
+	 *            the downloadAddr to set
+	 */
+	public void setDownloadAddr(String downloadAddr) {
+		this.downloadAddr = downloadAddr;
+	}
+
+	public String getDownloadFileName() {
+		// 解决空格和非ASCII文字文件名编码
+		try {
+			downloadFileName = URLEncoder.encode(downloadFileName, "utf-8"); 
+			downloadFileName = downloadFileName.replace("+","%20");
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		return downloadFileName;
+	}
+
+	public void setDownloadFileName(String downloadFileName) {
+		this.downloadFileName = downloadFileName;
+	}
+
+	/**
+	 * @return the version
+	 */
+	public String getVersion() {
+		return version;
+	}
+
+	/**
+	 * @param version
+	 *            the version to set
+	 */
+	public void setVersion(String version) {
+		this.version = version;
+	}
+
+	/**
+	 * @return the price
+	 */
+	public float getPrice() {
+		return price;
+	}
+
+	/**
+	 * @param price
+	 *            the price to set
+	 */
+	public void setPrice(float price) {
+		this.price = price;
+	}
+
+	public String getPriceForShowing() {
+		return priceForShowing;
+	}
+
+	public void setPriceForShowing(String priceForShowing) {
+		this.priceForShowing = priceForShowing;
+	}
+
+	/**
+	 * @return the introduction
+	 */
+	public String getIntroduction() {
+		return introduction;
+	}
+
+	/**
+	 * @param introduction
+	 *            the introduction to set
+	 */
+	public void setIntroduction(String introduction) {
+		this.introduction = introduction;
 	}
 
 	/**
@@ -197,18 +487,18 @@ public class LabAction extends ActionSupport {
 	}
 
 	/**
-	 * @return the deleteProjectId
+	 * @return the targetProjectId
 	 */
-	public int getDeleteProjectId() {
-		return deleteProjectId;
+	public int getTargetProjectId() {
+		return targetProjectId;
 	}
 
 	/**
-	 * @param deleteProjectId
-	 *            the deleteProjectId to set
+	 * @param targetProjectId
+	 *            the targetProjectId to set
 	 */
-	public void setDeleteProjectId(int deleteProjectId) {
-		this.deleteProjectId = deleteProjectId;
+	public void setTargetProjectId(int targetProjectId) {
+		this.targetProjectId = targetProjectId;
 	}
 
 	/**
@@ -227,19 +517,63 @@ public class LabAction extends ActionSupport {
 	}
 
 	/**
-	 * 添加project
+	 * 初始化新项目默认参数
 	 * 
 	 * @return
 	 * @throws Exception
 	 */
-	public String addProject() throws Exception {
+	public String initNewProject() throws Exception {
+		// android/web/window
+		// type = "";
+		// title = "";
+		// version = "1.0";
+		// price = 0f;
+		// introduction = "";
+		releaseDateForEditing = dateHTMLReadFormater.format(new Date(System
+				.currentTimeMillis()));
+		return SUCCESS;
+	}
+
+	/**
+	 * 保存project
+	 * 
+	 * @return
+	 * @throws Exception
+	 */
+	public String saveProject() throws Exception {
+		if (targetProjectId == 0) {
+			return saveNewProject();
+		} else {
+			return updateProject();
+		}
+	}
+
+	/**
+	 * 保存新project
+	 * 
+	 * @return
+	 * @throws Exception
+	 */
+	private String saveNewProject() throws Exception {
 		final String snapshotPath = saveSnapshot();
+		final String projectFilePath = saveProjectFile();
+
 		Project project = new Project();
 		project.setTitle(title);
 		project.setType(type);
-		project.setLinkAddr(linkAddr);
+		project.setWebLinkAddr(webLinkAddr);
 		project.setSnapshotAddr(snapshotPath);
+
+		project.setSourceLinkAddr(sourceLinkAddr);
+		project.setProjectFileAddr(projectFilePath);
+		project.setVersion(version);
+		project.setPrice(price);
+		project.setIntroduction(introduction);
+
+		project.setReleaseDate(dateHTMLReadFormater
+				.parse(releaseDateForEditing).getTime());
 		project.setAddTime(System.currentTimeMillis());
+		project.setUpdateTime(System.currentTimeMillis());
 		if (projectDao.save(project))
 			return SUCCESS;
 		else
@@ -247,38 +581,148 @@ public class LabAction extends ActionSupport {
 	}
 
 	/**
-	 * 存储上传的快照，非jpeg、png格式后缀标记为.pic，文件名取UUID随机值
+	 * 更新project信息
+	 * 
+	 * @return
+	 * @throws Exception
+	 */
+	private String updateProject() throws Exception {
+		Project project = projectDao.get(targetProjectId);
+		if (project != null) {
+			final String snapshotPath = saveSnapshot();
+			final String projectFilePath = saveProjectFile();
+
+			project.setTitle(title);
+			project.setType(type);
+			project.setWebLinkAddr(webLinkAddr);
+			if (!snapshotPath.isEmpty()) {
+				deleteProjectSnapshot(project);
+				project.setSnapshotAddr(snapshotPath);
+			}
+
+			project.setSourceLinkAddr(sourceLinkAddr);
+			if (!projectFilePath.isEmpty()) {
+				deleteProjectFile(project);
+				project.setProjectFileAddr(projectFilePath);
+			}
+			project.setVersion(version);
+			project.setPrice(price);
+			project.setIntroduction(introduction);
+
+			project.setReleaseDate(dateHTMLReadFormater.parse(
+					releaseDateForEditing).getTime());
+			project.setUpdateTime(System.currentTimeMillis());
+			if (projectDao.save(project))
+				return SUCCESS;
+			else
+				return ERROR;
+		}
+		return ERROR;
+	}
+
+	/**
+	 * 列出目标project信息
+	 * 
+	 * @return
+	 * @throws Exception
+	 */
+	public String listTargetProjectInfo() throws Exception {
+		Project project = projectDao.get(targetProjectId);
+		if (project != null) {
+			type = project.getType();
+			title = project.getTitle();
+			snapshotAddr = project.getSnapshotAddr();
+			webLinkAddr = project.getWebLinkAddr();
+			downloadAddr = project.getProjectFileAddr();
+			sourceLinkAddr = project.getSourceLinkAddr();
+			version = project.getVersion();
+			price = project.getPrice();
+			priceForShowing = decimalFormater.format(project.getPrice());
+			introduction = project.getIntroduction();
+			releaseDateForEditing = dateHTMLReadFormater.format(new Date(
+					project.getReleaseDate()));
+			releaseDateForShowing = dateHTMLWriteFormater.format(new Date(
+					project.getReleaseDate()));
+			updatingDate = datetimeHTMLWriteFormater.format(new Date(project
+					.getUpdateTime()));
+			return SUCCESS;
+		}
+		return ERROR;
+	}
+
+	public String checkProjectFileAddr() {
+		Project project = projectDao.get(targetProjectId);
+		if (project != null) {
+			downloadAddr = project.getProjectFileAddr();
+			if (downloadAddr == null || downloadAddr.isEmpty()) {
+				return ERROR;
+			}
+			downloadFileName = downloadAddr.substring(downloadAddr
+					.lastIndexOf('\\') + 1);
+			return SUCCESS;
+		}
+		return ERROR;
+	}
+
+	public InputStream getDownloadProjectFile() {
+		if (downloadAddr == null || downloadAddr.isEmpty()) {
+			return null;
+		}
+		return ServletActionContext.getServletContext().getResourceAsStream(
+				downloadAddr);
+	}
+
+	/**
+	 * 存储上传的快照，文件名取UUID随机值
 	 * 
 	 * @return 快照文件在应用根目录内的相对目录文件名
 	 * @throws Exception
 	 */
 	private String saveSnapshot() throws Exception {
-		String suffix = null;
-		if (snapshotContentType.equals("image/jpeg"))
-			suffix = ".jpg";
-		if (snapshotContentType.equals("image/png"))
-			suffix = ".png";
-		if (suffix == null)
-			suffix = ".pic";
+		if (snapshot == null) {
+			return "";
+		}
+		String suffix = snapshotFileName.substring(snapshotFileName
+				.lastIndexOf('.'));
 		final String fileName = UUID.randomUUID().toString() + suffix;
-		File outputSnapshot = new File(savePath, fileName);
+		File outputSnapshot = new File(snapshotSavePath, fileName);
 		FileUtils.copyFile(snapshot, outputSnapshot);
-		ActionContext ac = ActionContext.getContext();
-		ServletContext sc = (ServletContext) ac
-				.get(ServletActionContext.SERVLET_CONTEXT);
-		String currentPath = sc.getRealPath("/");
-		String relativePath = new File(savePath.replace(currentPath, ""),
+		String relativePath = new File(snapshotSavePath.replace(rootPath, ""),
 				fileName).getPath();
 		return relativePath;
 	}
 
 	/**
-	 * 列出project
+	 * 存储上传的项目可执行文件，文件名取UUID随机值
+	 * 
+	 * @return 项目可执行文件在应用根目录内的相对目录文件名
+	 * @throws Exception
+	 */
+	private String saveProjectFile() throws Exception {
+		if (projectFile == null) {
+			return "";
+		}
+		String prefix = projectFileFileName.substring(0,
+				projectFileFileName.lastIndexOf('.'));
+		String suffix = projectFileFileName.substring(projectFileFileName
+				.lastIndexOf('.'));
+		String date = dateFileNameFormater.format(new Date(System
+				.currentTimeMillis()));
+		final String fileName = prefix + '_' + date + suffix;
+		File outputProjectFile = new File(projectFileSavePath, fileName);
+		FileUtils.copyFile(projectFile, outputProjectFile);
+		String relativePath = new File(
+				projectFileSavePath.replace(rootPath, ""), fileName).getPath();
+		return relativePath;
+	}
+
+	/**
+	 * 列出所有projects
 	 * 
 	 * @return
 	 * @throws Exception
 	 */
-	public String listProject() throws Exception {
+	public String listProjects() throws Exception {
 		projectList = projectDao.listByAddTime();
 		return SUCCESS;
 	}
@@ -290,13 +734,31 @@ public class LabAction extends ActionSupport {
 	 * @throws Exception
 	 */
 	public String deleteProject() throws Exception {
-		Project project = projectDao.get(deleteProjectId);
+		Project project = projectDao.get(targetProjectId);
 		if (project != null) {
-			if (projectDao.delete(project))
+			if (projectDao.delete(project)) {
+				deleteProjectSnapshot(project);
+				deleteProjectFile(project);
 				return SUCCESS;
-			else
+			} else
 				return ERROR;
 		}
 		return ERROR;
+	}
+
+	private void deleteProjectSnapshot(Project project) {
+		try {
+			File snapshot = new File(rootPath + project.getSnapshotAddr());
+			snapshot.delete();
+		} catch (Exception e) {
+		}
+	}
+
+	private void deleteProjectFile(Project project) {
+		try {
+			File projectFile = new File(rootPath + project.getProjectFileAddr());
+			projectFile.delete();
+		} catch (Exception e) {
+		}
 	}
 }

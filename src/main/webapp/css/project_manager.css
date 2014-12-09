@@ -1,0 +1,119 @@
+@charset "utf-8";
+
+div#projectList {
+	margin-bottom: 25px;
+}
+
+div#projectList ul {
+	line-height: 2em;
+	margin: 0 20px;
+	font-size: 1.2em;
+	list-style-type: none;
+	text-align: center;
+	margin-top: 25px;
+}
+
+div#projectList ul li {
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+	vertical-align: top;
+	text-align: center;
+	margin: 20px 10px;
+}
+
+div#projectList a:link, div#projectList a:visited {
+	color: #eee;
+}
+
+div#projectList a:hover, div#projectList a p:hover {
+	color: #999;
+}
+
+div#projectList li div.projectUnit {
+	background-color: #252525;
+	width: 267px;
+}
+
+div#projectList li div.snapshot {
+	height: 150px;
+}
+
+div#projectList li div.snapshot img.snapshotImg {
+	width: 267px;
+	height: 150px;
+}
+
+div#projectList li div.platformMark {
+	height: 64px;
+	width: 64px;
+	position: absolute;
+	/* 左上角 */
+	text-align: left;
+	margin:-20px 0px 0px -10px;
+	z-index: 2;
+}
+
+div#projectList li div.platformMark img{
+	position: absolute;
+}
+
+div#projectList li div#addProjectUnit{
+	width: 267px;
+	height: 150px;
+	background-color: #C8C8C8;
+}
+
+div#projectList li div#addProjectUnit:hover {
+	background-color: #FFFFFF;
+}
+
+div#projectList li div#addProjectUnit img{
+	margin-top: 10px;
+}
+
+div#projectList li div.editProject {
+	width: 267px;
+	height: 150px;
+	position: absolute;
+	z-index: 1;
+	background-color: rgba(255, 255, 255, 0.75);
+	opacity: 0.3;
+	filter: alpha(opacity = 30);
+}
+
+div#projectList li div.editProject:hover {
+	opacity: 1.0;
+	filter: alpha(opacity = 100);
+}
+
+div#projectList li div.editProject img {
+	margin-top: 10px;
+}
+
+div#projectList li div.deleteProjectDiv{
+	height: 64px;
+	width: 64px;
+	position: absolute;
+	/* 左上角 */
+	text-align: left;
+	margin:-20px 0px 0px -10px;
+	z-index: 3;
+	opacity: 0.15;
+	filter: alpha(opacity = 15);
+}
+
+div#projectList li div.deleteProjectDiv:hover{
+	opacity: 1.0;
+	filter: alpha(opacity = 100);	
+}
+
+div#projectList li div.deleteProjectDiv img{
+	width:50px;
+	height:50px;
+	margin:6px;
+}
+
+div#projectList li p {
+	
+}
