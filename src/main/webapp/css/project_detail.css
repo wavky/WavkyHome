@@ -78,6 +78,8 @@ div#infoList a#downloadLink,a#sourceLink{
 div#infoList p.buttonClickTimes{
 	font-style:italic;
 	color: #D28E00;
+	font-size: 13px;
+	line-height: 1.5em;
 }
 
 div#introduction {

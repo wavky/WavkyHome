@@ -21,12 +21,15 @@
 		<div id="header">
 			<div id="top">
 				<div id="language">
-					<a href="showProject?targetProjectId=<s:property value='targetProjectId'/>&request_locale=en" target="_self"><img
-						src="image/us.png" alt="English" title="English" /></a> <a
-						href="showProject?targetProjectId=<s:property value='targetProjectId'/>&request_locale=zh_CN" target="_self"><img
-						src="image/cn.png" alt="中文" title="中文" /></a> <a
-						href="showProject?targetProjectId=<s:property value='targetProjectId'/>&request_locale=ja_JP" target="_self"><img
-						src="image/jp.png" alt="日本語" title="日本語" /></a>
+					<a
+						href="showProject?targetProjectId=<s:property value='targetProjectId'/>&request_locale=en"
+						target="_self"><img src="image/us.png" alt="English"
+						title="English" /></a> <a
+						href="showProject?targetProjectId=<s:property value='targetProjectId'/>&request_locale=zh_CN"
+						target="_self"><img src="image/cn.png" alt="中文" title="中文" /></a>
+					<a
+						href="showProject?targetProjectId=<s:property value='targetProjectId'/>&request_locale=ja_JP"
+						target="_self"><img src="image/jp.png" alt="日本語" title="日本語" /></a>
 				</div>
 				<div id="visitor">
 					<a href="http://info.flagcounter.com/eqvj"><img
@@ -91,17 +94,23 @@
 						</tr>
 						<tr id="buttonRow">
 							<td colspan="2"><s:if test="! downloadAddr.isEmpty()">
-							<div id="downloadDiv">
-									<a id="downloadLink" href="/downloadProject?targetProjectId=<s:property value='targetProjectId'/>" target="_self"><img
-										src="image/download_button.png" /></a>
-										<p class="buttonClickTimes"><s:property value="download" /> 次</p>
-										</div>
-								</s:if>
-								<s:if test="! sourceLinkAddr.isEmpty()">
-								<div id="sourceDiv">
-									<a id="sourceLink" href="<s:property value='sourceLinkAddr' />"><img
-										src="image/source_button.png" /></a>
-										</div>
+									<div id="downloadDiv">
+										<a id="downloadLink"
+											href="/downloadProject?targetProjectId=<s:property value='targetProjectId'/>"
+											target="_self"
+											onclick="document.getElementById('downloadTimes').innerHTML++"><img
+											src="image/download_button.png" /></a>
+										<p class="buttonClickTimes">
+											- <span id="downloadTimes"><s:property
+													value="download" /></span> -
+										</p>
+									</div>
+								</s:if> <s:if test="! sourceLinkAddr.isEmpty()">
+									<div id="sourceDiv">
+										<a id="sourceLink"
+											href="<s:property value='sourceLinkAddr' />"><img
+											src="image/source_button.png" /></a>
+									</div>
 								</s:if></td>
 						</tr>
 						<%--
