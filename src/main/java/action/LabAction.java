@@ -76,6 +76,7 @@ public class LabAction extends ActionSupport {
 	private String snapshotAddr;
 	private String downloadAddr;
 	private String downloadFileName;
+	private int download;
 	private String version;
 	private float price;
 	private String priceForShowing;
@@ -418,6 +419,14 @@ public class LabAction extends ActionSupport {
 		this.downloadFileName = downloadFileName;
 	}
 
+	public int getDownload() {
+		return download;
+	}
+
+	public void setDownload(int download) {
+		this.download = download;
+	}
+
 	/**
 	 * @return the version
 	 */
@@ -566,6 +575,7 @@ public class LabAction extends ActionSupport {
 
 		project.setSourceLinkAddr(sourceLinkAddr);
 		project.setProjectFileAddr(projectFilePath);
+		project.setDownload(0);
 		project.setVersion(version);
 		project.setPrice(price);
 		project.setIntroduction(introduction);
@@ -634,6 +644,7 @@ public class LabAction extends ActionSupport {
 			snapshotAddr = project.getSnapshotAddr();
 			webLinkAddr = project.getWebLinkAddr();
 			downloadAddr = project.getProjectFileAddr();
+			download = project.getDownload();
 			sourceLinkAddr = project.getSourceLinkAddr();
 			version = project.getVersion();
 			price = project.getPrice();
@@ -667,6 +678,12 @@ public class LabAction extends ActionSupport {
 	public InputStream getDownloadProjectFile() {
 		if (downloadAddr == null || downloadAddr.isEmpty()) {
 			return null;
+		}
+		Project project = projectDao.get(targetProjectId);
+		if (project != null) {
+			int download = project.getDownload() + 1;
+			project.setDownload(download);
+			projectDao.save(project);
 		}
 		return ServletActionContext.getServletContext().getResourceAsStream(
 				downloadAddr);

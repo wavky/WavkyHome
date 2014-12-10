@@ -91,12 +91,17 @@
 						</tr>
 						<tr id="buttonRow">
 							<td colspan="2"><s:if test="! downloadAddr.isEmpty()">
+							<div id="downloadDiv">
 									<a id="downloadLink" href="/downloadProject?targetProjectId=<s:property value='targetProjectId'/>" target="_self"><img
 										src="image/download_button.png" /></a>
+										<p class="buttonClickTimes"><s:property value="download" /> 次</p>
+										</div>
 								</s:if>
 								<s:if test="! sourceLinkAddr.isEmpty()">
+								<div id="sourceDiv">
 									<a id="sourceLink" href="<s:property value='sourceLinkAddr' />"><img
 										src="image/source_button.png" /></a>
+										</div>
 								</s:if></td>
 						</tr>
 						<%--

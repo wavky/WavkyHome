@@ -63,12 +63,21 @@ div#infoList table tr#buttonRow td{
 	background-color:transparent;
 }
 
-div#infoList a#downloadLink,a#sourceLink{
+div#infoList div#downloadDiv,div#infoList div#sourceDiv{
 	display: inline-block;
 	*display: inline;
 	*zoom: 1;
+	vertical-align:top
+}
+
+div#infoList a#downloadLink,a#sourceLink{
 	margin:0 10px;
 	padding:10px 0;
+}
+
+div#infoList p.buttonClickTimes{
+	font-style:italic;
+	color: #D28E00;
 }
 
 div#introduction {

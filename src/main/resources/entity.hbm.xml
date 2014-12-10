@@ -21,6 +21,7 @@
 		<property name="snapshotAddr" />
 		<property name="sourceLinkAddr" />
 		<property name="projectFileAddr" />
+		<property name="download" />
 		<property name="version" />
 		<property name="price" />
 		<property name="introduction" />

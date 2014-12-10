@@ -19,6 +19,7 @@ public class Project {
 	
 	private String sourceLinkAddr;
 	private String projectFileAddr;
+	private Integer download;
 	private String version;
 	private Float price;
 	private String introduction;
@@ -110,6 +111,12 @@ public class Project {
 	 */
 	public void setProjectFileAddr(String projectFileAddr) {
 		this.projectFileAddr = projectFileAddr;
+	}
+	public Integer getDownload() {
+		return download;
+	}
+	public void setDownload(Integer download) {
+		this.download = download;
 	}
 	/**
 	 * @return the version
