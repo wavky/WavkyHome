@@ -11,6 +11,7 @@
 <link rel="stylesheet" type="text/css" href="css/common_frame.css" />
 <link rel="stylesheet" type="text/css" href="css/project_manager.css" />
 <link rel="icon" type="image/x-icon" href="image/favicon.ico" />
+<script type="text/javascript" charset="utf-8" src="js/common.js"></script>
 </head>
 <body>
 	<!-- 居中内容框 -->
