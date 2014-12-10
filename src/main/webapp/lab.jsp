@@ -82,13 +82,13 @@
 									<div class="snapshot">
 										<img src="<s:property value='snapshotAddr' />" />
 										<div class="platformMark">
-											<s:if test="type=='android'">
+											<s:if test="type=='Android'">
 												<img src="image/android.png" />
 											</s:if>
-											<s:if test="type=='web'">
+											<s:if test="type=='Web'">
 												<img src="image/ie.png" />
 											</s:if>
-											<s:if test="type=='window'">
+											<s:if test="type=='Window'">
 												<img src="image/window.png" />
 											</s:if>
 										</div>

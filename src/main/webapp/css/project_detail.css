@@ -11,6 +11,8 @@ div#projectInfo {
 
 div#projectTitle{
 	margin-bottom:25px;
+	color: #F08A00;
+	border-bottom: 1px solid #9D9D9D;
 }
 
 div#snapshot {
@@ -67,12 +69,12 @@ div#infoList div#downloadDiv,div#infoList div#sourceDiv{
 	display: inline-block;
 	*display: inline;
 	*zoom: 1;
-	vertical-align:top
+	vertical-align:top;
+	margin:0 10px;
+	padding:10px 0;
 }
 
 div#infoList a#downloadLink,a#sourceLink{
-	margin:0 10px;
-	padding:10px 0;
 }
 
 div#infoList p.buttonClickTimes{

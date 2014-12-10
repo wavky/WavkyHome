@@ -69,7 +69,6 @@
 					<h1>
 						<s:property value="title" />
 					</h1>
-					<hr />
 				</div>
 				<div id="snapshot">
 					<img id="snapshotImg" src="<s:property value='snapshotAddr' />" />

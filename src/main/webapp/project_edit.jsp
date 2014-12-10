@@ -79,7 +79,7 @@
 					<table>
 						<tr>
 							<td>类型：</td>
-							<td><s:radio list="%{{'android','web','window'}}"
+							<td><s:radio list="%{{'Android','Web','Window'}}"
 									name="type" cssClass="typeRadio" /></td>
 						</tr>
 						<tr>
