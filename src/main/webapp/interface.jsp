@@ -14,6 +14,8 @@
 <link rel="stylesheet" type="text/css" href="css/common_frame.css" />
 <link rel="stylesheet" type="text/css" href="css/interface.css" />
 <script type="text/javascript" charset="utf-8" src="js/common.js"></script>
+<script type="text/javascript" charset="utf-8"
+	src="/ueditor/ueditor.parse.min.js"></script>
 <link rel="icon" type="image/x-icon" href="image/favicon.ico" />
 </head>
 <body>
@@ -100,11 +102,15 @@
 								<table>
 									<tr>
 										<td>REQUEST</td>
-										<td><p><s:property value='request' /></p></td>
+										<td><div class="requestUEDiv">
+												<s:property value='request' escape="false" />
+											</div></td>
 									</tr>
 									<tr>
 										<td>RESPONSE</td>
-										<td><p><s:property value='response' /></p></td>
+										<td><div class="responseUEDiv">
+												<s:property value='response' escape="false" />
+											</div></td>
 									</tr>
 								</table>
 							</div></li>
@@ -112,7 +118,15 @@
 				</ol>
 			</div>
 		</div>
-<jsp:include page="footer.jsp" />
+		<script type="text/javascript">
+			uParse('.requestUEDiv', {
+				rootPath : '/ueditor/'
+			});
+			uParse('.responseUEDiv', {
+				rootPath : '/ueditor/'
+			});
+		</script>
+		<jsp:include page="footer.jsp" />
 		<!-- 备用浮动页脚 -->
 		<div id="footer"></div>
 	</div>

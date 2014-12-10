@@ -33,10 +33,10 @@
 		<id name="id">
 			<generator class="native" />
 		</id>
-		<property name="description" not-null="true" length="2048" />
-		<property name="body" not-null="true" length="1024" />
-		<property name="request" length="5000" />
-		<property name="response" length="5000" />
-		<property name="addTime" not-null="true" />
+		<property name="description" />
+		<property name="body" />
+		<property name="request" />
+		<property name="response" />
+		<property name="addTime" />
 	</class>
 </hibernate-mapping>

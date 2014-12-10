@@ -34,8 +34,8 @@ div#addInterface form table td:first-child {
 	text-align: center;
 }
 
-div#addInterface form input, div#addInterface form textarea {
-	width: 350px;
+div#addInterface form .text {
+	width: 400px;
 }
 
 div#addInterface form button#submit {
@@ -117,7 +117,6 @@ div.dictionaryTableDiv table tr, div.dictionaryTableDiv table td {
 	border-collapse: collapse;
 	padding: 5px;
 	line-height: 1.5em;
-	white-space: pre-wrap;
 	border-right: none;
 	border-bottom: none;
 }

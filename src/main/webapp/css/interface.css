@@ -34,7 +34,6 @@ div.dictionaryTableDiv table tr,div.dictionaryTableDiv table td {
 	border-collapse: collapse;
 	padding:5px;
 	line-height:1.5em;
-	white-space: pre-wrap;
 	border-right: none;
 	border-bottom: none;
 }
