@@ -25,8 +25,6 @@
 <!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
 <script type="text/javascript" charset="utf-8"
 	src="ueditor/lang/zh-cn/zh-cn.js"></script>
-<script type="text/javascript" charset="utf-8"
-	src="/ueditor/ueditor.parse.min.js"></script>
 </head>
 <body>
 	<!-- 居中内容框 -->
@@ -79,22 +77,23 @@
 				</a>
 			</s:if>
 			<div id="addInterface">
-				<s:form action="addInterface" method="post" theme="simple">
+				<s:form action="saveInterface" method="post" theme="simple">
+				<s:hidden name="targetInterfaceId" />
 					<table>
 						<tr>
 							<td>用途描述：</td>
 							<td><s:textfield name="description" cssClass="text" /></td>
 						</tr>
 						<tr>
-							<td>接口形式：</td>
-							<td><s:textfield name="interfaceBody" cssClass="text" /></td>
+							<td>接口URL：</td>
+							<td><s:textfield name="interfaceUrl" cssClass="text" /></td>
 						</tr>
 						<tr>
 							<td>请求格式：</td>
 							<td>
 								<div class="ueditorDiv text">
 									<script id="requestEditor" name="interfaceRequest" type="text/plain"
-										style="width:100%;height:120px;"><s:property value="interfaceRequest" escape="false" /></script>
+										style="width:100%;height:200px;"><s:property value="interfaceRequest" escape="false" /></script>
 								</div>
 							</td>
 						</tr>
@@ -103,9 +102,8 @@
 							<td>
 								<div class="ueditorDiv text">
 									<script id="responseEditor" name="interfaceResponse" type="text/plain"
-										style="width:100%;height:120px;"><s:property value="interfaceResponse" escape="false" /></script>
-								</div>
-							</td>
+										style="width:100%;height:200px;"><s:property value="interfaceResponse" escape="false" /></script>
+								</div>							</td>
 						</tr>
 					</table>
 					<script type="text/javascript">
@@ -130,77 +128,18 @@
 							//var introduction = '<s:property value="introduction" escape="false" />';
 							//ue.setContent(introduction);
 						//});
+
 					</script>
-					<button type="submit" id="submit" title="Add Interface">
-						<img src="image/add.png" />
-					</button>
+					
+					<div id="buttonDiv">
+						<button type="submit" id="submit">
+							<img src="image/submit_green.png" />
+						</button>
+						<a href="/interfaceManager" id="cancel"><img src="image/cancel_red.png" /></a>
+					</div>
 				</s:form>
 			</div>
-			<div id="interfaceList">
-				<h1>
-					<s:text name="interfaceList" />
-				</h1>
-				<ol>
-					<s:iterator value="interfaceList">
-						<div class="delete">
-							<a
-								href="deleteInterface?deleteInterfaceId=<s:property value='id' />"
-								title="delete"><img src="image/garbage.png" /></a>
-						</div>
-						<li><a href="#interface<s:property value='id' />">
-								<p class="description">
-									<s:property value='description' />
-								</p>
-								<p class="body">
-									<s:property value='body' />
-								</p>
-						</a></li>
-					</s:iterator>
-				</ol>
-			</div>
-			<div id="dictionaryList">
-				<h1>
-					<s:text name="interfaceDictionary" />
-				</h1>
-				<ol>
-					<s:iterator value="interfaceList">
-						<li><a name="interface<s:property value='id' />">
-								<p class="description">
-									<s:property value='description' />
-								</p>
-								<p class="body">
-									<a href="<s:property value='body' />" target="_blank"> <s:property
-											value='body' /></a>
-								</p>
-						</a>
-							<div class="dictionaryTableDiv">
-								<table>
-									<tr>
-										<td>REQUEST</td>
-										<td><div class="requestUEDiv">
-												<s:property value='request' escape="false" />
-											</div></td>
-									</tr>
-									<tr>
-										<td>RESPONSE</td>
-										<td><div class="responseUEDiv">
-												<s:property value='response' escape="false" />
-											</div></td>
-									</tr>
-								</table>
-							</div></li>
-					</s:iterator>
-				</ol>
-			</div>
 		</div>
-		<script type="text/javascript">
-			uParse('.requestUEDiv', {
-				rootPath : '/ueditor/'
-			});
-			uParse('.responseUEDiv', {
-				rootPath : '/ueditor/'
-			});
-		</script>
 		<jsp:include page="footer.jsp" />
 		<!-- 备用浮动页脚 -->
 		<div id="footer"></div>

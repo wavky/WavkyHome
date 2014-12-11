@@ -1,10 +1,8 @@
 @charset "utf-8";
 
 div#addInterface {
-	margin: 30px auto 0;
+	margin: 30px auto 15px;
 	min-width: 620px;
-	border-bottom: 1px #B2A36A dashed;
-	padding-bottom: 15px;
 }
 
 div#addInterface form {
@@ -16,9 +14,6 @@ div#addInterface form table {
 	*display: inline;
 	*zoom: 1;
 	vertical-align: middle;
-	padding-right: 20px;
-	border-right: 1px dashed #B2A36A;
-	margin-right: 20px;
 }
 
 div#addInterface form table tr {
@@ -35,7 +30,24 @@ div#addInterface form table td:first-child {
 }
 
 div#addInterface form .text {
-	width: 400px;
+	width: 600px;
+}
+
+div#addInterface form div#buttonDiv{
+	width:506px;
+	margin:20px auto;
+	position:relative;
+	left:83px;
+}
+
+div#addInterface form button#submit,div#addInterface form a#cancel img {
+	*zoom: 1;
+	vertical-align: middle;
+	background-color: transparent;
+	border: none;
+	margin: 0px 10px;
+	cursor: pointer;
+	padding:0;
 }
 
 div#addInterface form button#submit {
@@ -46,77 +58,4 @@ div#addInterface form button#submit {
 	background-color: transparent;
 	border: none;
 	cursor: pointer;
-}
-
-div#interfaceList ol, div#dictionaryList ol {
-	line-height: 2em;
-	margin: 0 50px;
-	font-size: 1.2em;
-}
-
-div#interfaceList li, div#dictionaryList li {
-	padding-top: 15px;
-}
-
-div#interfaceList {
-	padding-top: 30px;
-	margin-bottom: 50px;
-}
-
-div#interfaceList ol {
-	margin-top: 15px;
-	margin-left: 100px;
-}
-
-div#interfaceList div.delete {
-	width: 50px;
-	height: 50px;
-	background-color: #fff;
-	position: absolute;
-	margin-left: -90px;
-	margin-top: 15px;
-	border-radius: 25px;
-	-webkit-border-radius: 25px;
-	-moz-border-radius: 25px;
-	opacity: 0.2;
-	filter: alpha(opacity = 20);
-}
-
-div#interfaceList div.delete:hover {
-	opacity: 1.0;
-	filter: alpha(opacity = 100);
-}
-
-div#interfaceList li a p, div#dictionaryList li a p {
-	line-height: 1.5em;
-}
-
-div#interfaceList li p.description {
-	
-}
-
-div#interfaceList li p.body {
-	margin-top: 15px;
-}
-
-div#dictionaryList {
-	border-top: dotted 1px #B2A36A;
-	padding-top: 30px;
-}
-
-div.dictionaryTableDiv table {
-	margin-top: 15px;
-	border: solid 1px #aaa;
-	border-collapse: collapse;
-	border-right: none;
-	border-bottom: none;
-}
-
-div.dictionaryTableDiv table tr, div.dictionaryTableDiv table td {
-	border: solid 1px #aaa;
-	border-collapse: collapse;
-	padding: 5px;
-	line-height: 1.5em;
-	border-right: none;
-	border-bottom: none;
 }
