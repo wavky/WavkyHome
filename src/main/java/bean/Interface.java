@@ -13,7 +13,7 @@ public class Interface {
 
 	private Integer id;
 	private String description;
-	private String body;
+	private String url;
 	private String request;
 	private String response;
 	private Long addTime;
@@ -49,18 +49,18 @@ public class Interface {
 	}
 
 	/**
-	 * @return the body
+	 * @return the url
 	 */
-	public String getBody() {
-		return body;
+	public String getUrl() {
+		return url;
 	}
 
 	/**
-	 * @param body
-	 *            the body to set
+	 * @param url
+	 *            the url to set
 	 */
-	public void setBody(String body) {
-		this.body = body;
+	public void setUrl(String url) {
+		this.url = url;
 	}
 
 	/**

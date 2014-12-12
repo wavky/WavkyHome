@@ -6,13 +6,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Sorry</title>
+<script type="text/javascript" charset="utf-8" src="js/common.js"></script>
 <link rel="icon" type="image/x-icon" href="image/favicon.ico" />
 </head>
 <body>
 我错了 Orz
-<s:actionmessage/>
-<s:actionerror/>
+<s:actionmessage />
+<s:actionerror />
 <s:fielderror/>
-<s:debug/>
+<s:debug />
 </body>
 </html>

@@ -1,27 +1,52 @@
 @charset "utf-8";
-div#interfaceList ol, div#dictionaryList ol {
+
+a#anchorTop{
+	width: 0;
+	height: 0;
+	display:none;
+}
+
+div#interfaceList > ol, div#dictionaryList > ol {
 	line-height: 2em;
 	margin: 0 50px;
 	font-size: 1.2em;
 }
-div#interfaceList li, div#dictionaryList li {
-	margin-top: 15px;
+
+div#interfaceList > ol > li, div#dictionaryList > ol > li {
+	padding-top: 15px;
+	margin-bottom: 20px;
 }
+
 div#interfaceList {
 	margin-bottom: 50px;
 }
-div#interfaceList li a p, div#dictionaryList li a p {
+
+div#interfaceList > ol > li > a > p, div#dictionaryList > ol > li > a > p {
 	line-height: 1.5em;
 }
+
 div#interfaceList li p.description {
+	
 }
-div#interfaceList li p.body {
-	margin-top:15px;
-}
+
 div#dictionaryList {
 	border-top: dotted 1px #B2A36A;
 	padding-top: 30px;
 }
+
+div#dictionaryList > ol > li > a:hover {
+	color: #eee;
+}
+
+div#dictionaryList li p.url{
+	margin-top: 15px;
+}
+
+div#dictionaryList li p.url span.url:hover{
+	color: #999;
+	text-decoration: underline;
+}
+
 div.dictionaryTableDiv table {
 	margin-top: 15px;
 	border: solid 1px #aaa;
@@ -29,12 +54,19 @@ div.dictionaryTableDiv table {
 	border-right: none;
 	border-bottom: none;
 }
-div.dictionaryTableDiv table tr,div.dictionaryTableDiv table td {
+
+div.dictionaryTableDiv table tr, div.dictionaryTableDiv table td {
 	border: solid 1px #aaa;
 	border-collapse: collapse;
-	padding:5px;
-	line-height:1.5em;
-	white-space: pre-wrap;
+	padding: 10px 15px;
+	line-height: 1.5em;
 	border-right: none;
 	border-bottom: none;
+}
+
+div#gotoTop{
+	position:fixed;
+	left:25px;
+	bottom:20px;
+	z-index:2;
 }

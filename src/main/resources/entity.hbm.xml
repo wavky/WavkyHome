@@ -15,20 +15,28 @@
 		<id name="id">
 			<generator class="native" />
 		</id>
-		<property name="title" not-null="true" length="100" />
-		<property name="type" not-null="true" length="30" />
-		<property name="linkAddr" not-null="true" length="1024" />
-		<property name="snapshotAddr" not-null="true" length="1024" />
-		<property name="addTime" not-null="true" />
+		<property name="title" />
+		<property name="type" />
+		<property name="webLinkAddr" />
+		<property name="snapshotAddr" />
+		<property name="sourceLinkAddr" />
+		<property name="projectFileAddr" />
+		<property name="download" />
+		<property name="version" />
+		<property name="price" />
+		<property name="introduction" />
+		<property name="releaseDate" />
+		<property name="updateTime" />
+		<property name="addTime" />
 	</class>
 	<class name="Interface" table="interface">
 		<id name="id">
 			<generator class="native" />
 		</id>
-		<property name="description" not-null="true" length="2048" />
-		<property name="body" not-null="true" length="1024" />
-		<property name="request" length="5000" />
-		<property name="response" length="5000" />
-		<property name="addTime" not-null="true" />
+		<property name="description" />
+		<property name="url" />
+		<property name="request" />
+		<property name="response" />
+		<property name="addTime" />
 	</class>
 </hibernate-mapping>

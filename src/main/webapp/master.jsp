@@ -6,11 +6,16 @@
 <s:i18n name="master">
 	<head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="renderer" content="webkit" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+<meta name="keywords" content="Wavky, Wavky Wand, WavkyHome" />
+<meta http-equiv="cache-control" content="must-revalidate" />
 <base target="_blank" />
 <title><s:text name="titleMaster" /></title>
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 <link rel="stylesheet" type="text/css" href="css/common_frame.css" />
 <link rel="stylesheet" type="text/css" href="css/master_info.css" />
+<script type="text/javascript" charset="utf-8" src="js/common.js"></script>
 <link rel="icon" type="image/x-icon" href="image/favicon.ico" />
 	</head>
 	<body>
@@ -77,7 +82,7 @@
 							</tr>
 							<tr>
 								<td><s:text name="mail" /> ：</td>
-								<td><a href="mailto:wavky@foxmail.com" target="_self">wavky@foxmail.com</a></td>
+								<td><a href="mailto:master@wavky.com" target="_self">master@wavky.com</a></td>
 							</tr>
 							<tr>
 								<td>GitHub：</td>

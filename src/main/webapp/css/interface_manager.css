@@ -1,0 +1,100 @@
+@charset "utf-8";
+
+a#anchorTop{
+	width: 0;
+	height: 0;
+	display:none;
+}
+
+div#interfaceList div#newInterfaceDiv{
+	text-align:center;
+}
+
+div#interfaceList > ol, div#dictionaryList > ol {
+	line-height: 2em;
+	margin: 0 50px;
+	font-size: 1.2em;
+}
+
+div#interfaceList > ol > li, div#dictionaryList > ol > li {
+	padding-top: 15px;
+	margin-bottom: 20px;
+}
+
+div#interfaceList {
+	margin-bottom: 50px;
+}
+
+div#interfaceList > ol, div#dictionaryList > ol {
+	margin-top: 15px;
+	margin-left: 100px;
+}
+
+div#interfaceList div.delete,div#dictionaryList div.edit {
+	width: 50px;
+	height: 50px;
+	background-color: #fff;
+	position: absolute;
+	margin-left: -90px;
+	margin-top: 15px;
+	border-radius: 25px;
+	-webkit-border-radius: 25px;
+	-moz-border-radius: 25px;
+	opacity: 0.2;
+	filter: alpha(opacity = 20);
+}
+
+div#interfaceList div.delete:hover,div#dictionaryList div.edit:hover {
+	opacity: 1.0;
+	filter: alpha(opacity = 100);
+}
+
+div#interfaceList > ol > li > a > p, div#dictionaryList > ol > li > a > p {
+	line-height: 1.5em;
+}
+
+div#interfaceList li p.description {
+	
+}
+
+div#dictionaryList {
+	border-top: dotted 1px #B2A36A;
+	padding-top: 30px;
+}
+
+div#dictionaryList > ol > li > a:hover {
+	color: #eee;
+}
+
+div#dictionaryList li p.url{
+	margin-top: 15px;
+}
+
+div#dictionaryList li p.url span.url:hover{
+	color: #999;
+	text-decoration: underline;
+}
+
+div.dictionaryTableDiv table {
+	margin-top: 15px;
+	border: solid 1px #aaa;
+	border-collapse: collapse;
+	border-right: none;
+	border-bottom: none;
+}
+
+div.dictionaryTableDiv table tr, div.dictionaryTableDiv table td {
+	border: solid 1px #aaa;
+	border-collapse: collapse;
+	padding: 10px 15px;
+	line-height: 1.5em;
+	border-right: none;
+	border-bottom: none;
+}
+
+div#gotoTop{
+	position:fixed;
+	left:25px;
+	bottom:20px;
+	z-index:2;
+}

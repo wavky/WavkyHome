@@ -7,7 +7,6 @@ div#projectList ul {
 }
 
 div#projectList {
-	margin-bottom: 25px;
 }
 
 div#projectList ul {
@@ -58,6 +57,17 @@ div#projectList li div.platformMark {
 	text-align: left;
 	top: -170px;
 	left: -10px;
+	height: 64px;
+	width: 64px;
+	border-radius: 32px;
+	-webkit-border-radius: 32px;
+	-moz-border-radius: 32px;
+	box-shadow: 0px 0px 10px 5px #eee;
+	background-color: #eee;
+}
+
+div#projectList li div.platformMark img{
+	position: absolute;
 }
 
 div#projectList li p {

@@ -5,14 +5,21 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="renderer" content="webkit" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+<meta http-equiv="cache-control" content="max-age=60" />
 <base target="_self" />
 <title><s:text name="titleInterface" /></title>
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 <link rel="stylesheet" type="text/css" href="css/common_frame.css" />
 <link rel="stylesheet" type="text/css" href="css/interface.css" />
+<script type="text/javascript" charset="utf-8" src="js/common.js"></script>
+<script type="text/javascript" charset="utf-8"
+	src="/ueditor/ueditor.parse.min.js"></script>
 <link rel="icon" type="image/x-icon" href="image/favicon.ico" />
 </head>
 <body>
+	<a name="top" id="anchorTop"/>
 	<!-- 居中内容框 -->
 	<div id="main">
 		<!-- 页眉logo、导航栏 -->
@@ -58,7 +65,7 @@
 		<!-- 页面内容 -->
 		<div id="content">
 			<s:if test='#session.isMaster'>
-				<a href="interface_edit"><div id="edit">编辑模式</div></a>
+				<a href="interfaceManager"><div id="edit">编辑模式</div></a>
 			</s:if>
 			<div id="interfaceList">
 				<h1>
@@ -70,8 +77,8 @@
 								<p class="description">
 									<s:property value='description' />
 								</p>
-								<p class="body">
-									<s:property value='body' />
+								<p class="url">
+									<s:property value='url' />
 								</p>
 						</a></li>
 					</s:iterator>
@@ -82,33 +89,49 @@
 					<s:text name="interfaceDictionary" />
 				</h1>
 				<ol>
-					<s:iterator value="interfaceList">
+					<s:iterator value="interfaceList" id="interface">
 						<li><a name="interface<s:property value='id' />">
 								<p class="description">
 									<s:property value='description' />
 								</p>
-								<p class="body">
-									<a href="<s:property value='body' />" target="_blank"> <s:property
-											value='body' /></a>
+								<p class="url">
+									URL格式： ： <span class="url"><s:property value='url' /></span>
 								</p>
 						</a>
 							<div class="dictionaryTableDiv">
 								<table>
 									<tr>
 										<td>REQUEST</td>
-										<td><p><s:property value='request' /></p></td>
+										<td><div class="requestUEDiv">
+												<s:property value='#interface.request' escape="false" />
+											</div></td>
 									</tr>
 									<tr>
 										<td>RESPONSE</td>
-										<td><p><s:property value='response' /></p></td>
+										<td><div class="responseUEDiv">
+												<s:property value='#interface.response' escape="false" />
+											</div></td>
 									</tr>
 								</table>
 							</div></li>
 					</s:iterator>
 				</ol>
 			</div>
+			<div id="gotoTop">
+				<a href="#top" title="top">
+					<img src="image/top.png" />
+				</a>
+			</div>
 		</div>
-<jsp:include page="footer.jsp" />
+		<script type="text/javascript">
+			uParse('.requestUEDiv', {
+				rootPath : '/ueditor/'
+			});
+			uParse('.responseUEDiv', {
+				rootPath : '/ueditor/'
+			});
+		</script>
+		<jsp:include page="footer.jsp" />
 		<!-- 备用浮动页脚 -->
 		<div id="footer"></div>
 	</div>

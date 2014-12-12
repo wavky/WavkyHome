@@ -5,11 +5,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="renderer" content="webkit" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+<meta name="keywords" content="Wavky, Wavky Wand, WavkyHome" />
+<meta http-equiv="cache-control" content="max-age=60" />
 <base target="_blank" />
 <title><s:text name="titleHome" /></title>
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 <link rel="stylesheet" type="text/css" href="css/common_frame.css" />
 <link rel="stylesheet" type="text/css" href="css/index.css" />
+<script type="text/javascript" charset="utf-8" src="js/common.js"></script>
 <link rel="icon" type="image/x-icon" href="image/favicon.ico" />
 </head>
 <body>
@@ -64,20 +69,28 @@
 				</h1>
 				<ul>
 					<s:iterator value="projectList">
-						<li><a href="<s:property value='linkAddr' />">
+						<li><s:if test="type=='web'">
+								<a href="<s:property value='webLinkAddr' />" target="_blank">
+							</s:if> <s:else>
+								<a href="showProject?targetProjectId=<s:property value='id'/>"
+									target="_self">
+							</s:else>
 								<div class="recentlyUnit">
 									<div class="snapshot">
 										<img src="<s:property value='snapshotAddr' />" />
 										<div class="platformMark">
-											<s:if test="type=='android'">
-												<img src="image/android.png">
+											<s:if test="type=='Android'">
+												<img src="image/android.png" />
 											</s:if>
-											<s:if test="type=='web'">
-												<img src="image/ie.png">
+											<s:if test="type=='Web'">
+												<img src="image/ie.png" />
 											</s:if>
-											<s:if test="type=='window'">
-												<img src="image/window.png">
+											<s:if test="type=='Window'">
+												<img src="image/window.png" />
 											</s:if>
+										<s:if test="type=='Tool'">
+											<img src="image/tool.png" />
+										</s:if>
 										</div>
 									</div>
 									<p class="title">
@@ -94,7 +107,7 @@
 				</h1>
 				<ul>
 					<s:iterator value="articleList">
-						<li><a href=<s:property value="linkAddr"/>><s:property
+						<li><a href="<s:property value='linkAddr' />" ><s:property
 									value="title" /></a></li>
 					</s:iterator>
 				</ul>

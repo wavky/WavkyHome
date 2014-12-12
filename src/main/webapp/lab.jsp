@@ -5,11 +5,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<base target="_blank" />
+<meta name="renderer" content="webkit" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+<meta name="keywords" content="Wavky, Wavky Wand, WavkyHome" />
+<meta http-equiv="cache-control" content="max-age=60" />
+<base target="_self" />
 <title><s:text name="titleLab" /></title>
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 <link rel="stylesheet" type="text/css" href="css/common_frame.css" />
 <link rel="stylesheet" type="text/css" href="css/lab.css" />
+<script type="text/javascript" charset="utf-8" src="js/common.js"></script>
 <link rel="icon" type="image/x-icon" href="image/favicon.ico" />
 </head>
 <body>
@@ -33,7 +38,7 @@
 				</div>
 			</div>
 			<div class="logo" id="logoDIV">
-				<img src="image/logo.png" />
+				<img src="image/logo_lab.png" />
 				<s:if test='#session.isMaster'>
 					<a href="logout" target="_self" title="exit"><img
 						src="image/logout.png" /></a>
@@ -59,7 +64,7 @@
 		<!-- 页面内容 -->
 		<div id="content">
 			<s:if test='#session.isMaster'>
-				<a href="lab_edit" target="_self"><div id="edit">编辑模式</div></a>
+				<a href="projectManager" target="_self"><div id="edit">编辑模式</div></a>
 			</s:if>
 			<div id="projectList">
 				<h1>
@@ -67,19 +72,27 @@
 				</h1>
 				<ul>
 					<s:iterator value="projectList">
-						<li><a href="<s:property value='linkAddr' />">
+						<li><s:if test="type=='web'">
+								<a href="<s:property value='webLinkAddr' />" target="_blank">
+							</s:if> <s:else>
+								<a href="showProject?targetProjectId=<s:property value='id'/>"
+									target="_self">
+							</s:else>
 								<div class="projectUnit">
 									<div class="snapshot">
 										<img src="<s:property value='snapshotAddr' />" />
 										<div class="platformMark">
-											<s:if test="type=='android'">
-												<img src="image/android.png">
+											<s:if test="type=='Android'">
+												<img src="image/android.png" />
 											</s:if>
-											<s:if test="type=='web'">
-												<img src="image/ie.png">
+											<s:if test="type=='Web'">
+												<img src="image/ie.png" />
 											</s:if>
-											<s:if test="type=='window'">
-												<img src="image/window.png">
+											<s:if test="type=='Window'">
+												<img src="image/window.png" />
+											</s:if>
+											<s:if test="type=='Tool'">
+												<img src="image/tool.png" />
 											</s:if>
 										</div>
 									</div>

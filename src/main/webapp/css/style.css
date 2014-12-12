@@ -6,10 +6,13 @@ html, body, * {
 }
 
 body {
-	font-size:14px;
-	color:#eee;
-	font-family:"微软雅黑",'Microsoft Yahei',Arial,Serif;
 	background:#fff;
+	font-size:14px;
+	font-family:"微软雅黑",'Microsoft Yahei',Arial,Serif;
+}
+
+body > div#main {
+	color:#eee;
 }
 
 * html,* html body /* 修正IE6振动bug */{
