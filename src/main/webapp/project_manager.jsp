@@ -93,6 +93,9 @@
 										<s:if test="type=='Window'">
 											<img src="image/window.png">
 										</s:if>
+										<s:if test="type=='Tool'">
+											<img src="image/tool.png" />
+										</s:if>
 									</div>
 									<a
 										href="deleteProject?targetProjectId=<s:property value='id'/>"

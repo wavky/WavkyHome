@@ -63,7 +63,7 @@
 		<!-- 页面内容 -->
 		<div id="content">
 			<s:if test='#session.isMaster'>
-				<a href="projectManager" target="_self"><div id="edit">编辑模式</div></a>
+				<a href="editProject?targetProjectId=<s:property value='targetProjectId'/>" target="_self"><div id="edit">编辑模式</div></a>
 			</s:if>
 			<div id="projectInfo">
 				<div id="projectTitle">

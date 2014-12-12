@@ -52,6 +52,11 @@ div#projectList li div.platformMark {
 	text-align: left;
 	margin:-20px 0px 0px -10px;
 	z-index: 2;
+	border-radius: 32px;
+	-webkit-border-radius: 32px;
+	-moz-border-radius: 32px;
+	box-shadow: 0px 0px 10px 5px #eee;
+	background-color: #eee;
 }
 
 div#projectList li div.platformMark img{
