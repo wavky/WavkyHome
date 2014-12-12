@@ -22,10 +22,10 @@ public class InterfaceAction extends ActionSupport {
 	private static final long serialVersionUID = 1L;
 
 	private String description;
-	private String interfaceBody;
+	private String interfaceUrl;
 	private String interfaceRequest;
 	private String interfaceResponse;
-	private int deleteInterfaceId;
+	private int targetInterfaceId;
 	private InterfaceDao interfaceDao;
 	private List<Interface> interfaceList;
 
@@ -44,19 +44,19 @@ public class InterfaceAction extends ActionSupport {
 		this.description = description;
 	}
 
-	
 	/**
-	 * @return the interfaceBody
+	 * @return the interfaceUrl
 	 */
-	public String getInterfaceBody() {
-		return interfaceBody;
+	public String getInterfaceUrl() {
+		return interfaceUrl;
 	}
 
 	/**
-	 * @param interfaceBody the interfaceBody to set
+	 * @param interfaceUrl
+	 *            the interfaceUrl to set
 	 */
-	public void setInterfaceBody(String interfaceBody) {
-		this.interfaceBody = interfaceBody;
+	public void setInterfaceUrl(String interfaceUrl) {
+		this.interfaceUrl = interfaceUrl;
 	}
 
 	/**
@@ -67,7 +67,8 @@ public class InterfaceAction extends ActionSupport {
 	}
 
 	/**
-	 * @param interfaceRequest the interfaceRequest to set
+	 * @param interfaceRequest
+	 *            the interfaceRequest to set
 	 */
 	public void setInterfaceRequest(String interfaceRequest) {
 		this.interfaceRequest = interfaceRequest;
@@ -81,25 +82,26 @@ public class InterfaceAction extends ActionSupport {
 	}
 
 	/**
-	 * @param interfaceResponse the interfaceResponse to set
+	 * @param interfaceResponse
+	 *            the interfaceResponse to set
 	 */
 	public void setInterfaceResponse(String interfaceResponse) {
 		this.interfaceResponse = interfaceResponse;
 	}
 
 	/**
-	 * @return the deleteInterfaceId
+	 * @return the targetInterfaceId
 	 */
-	public int getDeleteInterfaceId() {
-		return deleteInterfaceId;
+	public int getTargetInterfaceId() {
+		return targetInterfaceId;
 	}
 
 	/**
-	 * @param deleteInterfaceId
-	 *            the deleteInterfaceId to set
+	 * @param targetInterfaceId
+	 *            the targetInterfaceId to set
 	 */
-	public void setDeleteInterfaceId(int deleteInterfaceId) {
-		this.deleteInterfaceId = deleteInterfaceId;
+	public void setTargetInterfaceId(int targetInterfaceId) {
+		this.targetInterfaceId = targetInterfaceId;
 	}
 
 	/**
@@ -143,10 +145,42 @@ public class InterfaceAction extends ActionSupport {
 		return SUCCESS;
 	}
 
-	public String addInterface() throws Exception {
+	/**
+	 * 列出目标interface信息
+	 * 
+	 * @return
+	 * @throws Exception
+	 */
+	public String listTargetInterfaceInfo() throws Exception {
+		Interface mInterface = interfaceDao.get(targetInterfaceId);
+		if (mInterface != null) {
+			description = mInterface.getDescription();
+			interfaceUrl = mInterface.getUrl();
+			interfaceRequest = mInterface.getRequest();
+			interfaceResponse = mInterface.getResponse();
+			return SUCCESS;
+		}
+		return ERROR;
+	}
+
+	/**
+	 * 保存project
+	 * 
+	 * @return
+	 * @throws Exception
+	 */
+	public String saveInterface() throws Exception {
+		if (targetInterfaceId == 0) {
+			return saveNewInterface();
+		} else {
+			return updateInterface();
+		}
+	}
+
+	private String saveNewInterface() throws Exception {
 		Interface newInterface = new Interface();
 		newInterface.setDescription(description);
-		newInterface.setBody(interfaceBody);
+		newInterface.setUrl(interfaceUrl);
 		newInterface.setRequest(interfaceRequest);
 		newInterface.setResponse(interfaceResponse);
 		newInterface.setAddTime(System.currentTimeMillis());
@@ -156,8 +190,28 @@ public class InterfaceAction extends ActionSupport {
 			return ERROR;
 	}
 
+	/**
+	 * 更新interface信息
+	 * 
+	 * @return
+	 * @throws Exception
+	 */
+	private String updateInterface() {
+		Interface mInterface = interfaceDao.get(targetInterfaceId);
+		if (mInterface != null) {
+			mInterface.setDescription(description);
+			mInterface.setUrl(interfaceUrl);
+			mInterface.setRequest(interfaceRequest);
+			mInterface.setResponse(interfaceResponse);
+		}
+		if (interfaceDao.save(mInterface))
+			return SUCCESS;
+		else
+			return ERROR;
+	}
+
 	public String deleteInterface() throws Exception {
-		Interface deleteInterface = interfaceDao.get(deleteInterfaceId);
+		Interface deleteInterface = interfaceDao.get(targetInterfaceId);
 		if (deleteInterface != null) {
 			if (interfaceDao.delete(deleteInterface))
 				return SUCCESS;

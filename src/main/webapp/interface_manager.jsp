@@ -7,16 +7,18 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="renderer" content="webkit" />
 <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
-<meta http-equiv="cache-control" content="max-age=60" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="expires" content="0" />
 <base target="_self" />
 <title><s:text name="titleInterface" /></title>
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 <link rel="stylesheet" type="text/css" href="css/common_frame.css" />
-<link rel="stylesheet" type="text/css" href="css/interface.css" />
+<link rel="stylesheet" type="text/css" href="css/interface_manager.css" />
 <script type="text/javascript" charset="utf-8" src="js/common.js"></script>
+<link rel="icon" type="image/x-icon" href="image/favicon.ico" />
 <script type="text/javascript" charset="utf-8"
 	src="/ueditor/ueditor.parse.min.js"></script>
-<link rel="icon" type="image/x-icon" href="image/favicon.ico" />
 </head>
 <body>
 	<a name="top" id="anchorTop"/>
@@ -65,14 +67,25 @@
 		<!-- 页面内容 -->
 		<div id="content">
 			<s:if test='#session.isMaster'>
-				<a href="interfaceManager"><div id="edit">编辑模式</div></a>
+				<a href="api">
+					<div id="edit">退出编辑</div>
+				</a>
 			</s:if>
 			<div id="interfaceList">
 				<h1>
 					<s:text name="interfaceList" />
 				</h1>
+				<div id="newInterfaceDiv"><a href="newInterface" title="new">
+			<img src="image/add.png" />
+			</a>
+			</div>
 				<ol>
 					<s:iterator value="interfaceList">
+						<div class="delete">
+							<a
+								href="deleteInterface?targetInterfaceId=<s:property value='id' />"
+								title="delete"><img src="image/garbage.png" /></a>
+						</div>
 						<li><a href="#interface<s:property value='id' />">
 								<p class="description">
 									<s:property value='description' />
@@ -84,18 +97,24 @@
 					</s:iterator>
 				</ol>
 			</div>
+			
 			<div id="dictionaryList">
 				<h1>
 					<s:text name="interfaceDictionary" />
 				</h1>
 				<ol>
 					<s:iterator value="interfaceList" id="interface">
+						<div class="edit">
+							<a
+								href="editInterface?targetInterfaceId=<s:property value='id'/>"
+								title="edit"><img src="image/editInterface.png" /></a>
+						</div>
 						<li><a name="interface<s:property value='id' />">
 								<p class="description">
 									<s:property value='description' />
 								</p>
 								<p class="url">
-									URL格式： ： <span class="url"><s:property value='url' /></span>
+									URL格式： <span class="url"><s:property value='url' /></span>
 								</p>
 						</a>
 							<div class="dictionaryTableDiv">

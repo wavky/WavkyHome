@@ -80,7 +80,7 @@
 					<table>
 						<tr>
 							<td>类型：</td>
-							<td><s:radio list="%{{'Android','Web','Window'}}"
+							<td><s:radio list="%{{'Android','Web','Window','Tool'}}"
 									name="type" cssClass="typeRadio" /></td>
 						</tr>
 						<tr>
@@ -100,7 +100,8 @@
 						</tr>
 						<tr>
 							<td>发布日期：</td>
-							<td><s:textfield name="releaseDateForEditing" type="date" cssClass="text"/></td>
+							<td><s:textfield name="releaseDateForEditing" type="date"
+									cssClass="text" /></td>
 						</tr>
 						<tr>
 							<td>GitHub源码：</td>
@@ -116,7 +117,8 @@
 						</tr>
 						<tr>
 							<td>售价：</td>
-							<td><s:textfield type="number" name="price" cssClass="text" /> RMB</td>
+							<td><s:textfield type="number" name="price" cssClass="text" />
+								RMB</td>
 						</tr>
 					</table>
 					<div id="ueditorDiv">
@@ -128,15 +130,16 @@
 						//建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
 						var ue = UE.getEditor('editor');
 						//ue.ready(function() {
-							//var introduction = '<s:property value="introduction" escape="false" />';
-							//ue.setContent(introduction);
+						//var introduction = '<s:property value="introduction" escape="false" />';
+						//ue.setContent(introduction);
 						//});
 					</script>
 					<div id="buttonDiv">
 						<button type="submit" id="submit">
 							<img src="image/submit_green.png" />
 						</button>
-						<a href="/projectManager" id="cancel"><img src="image/cancel_red.png" /></a>
+						<a href="/projectManager" id="cancel"><img
+							src="image/cancel_red.png" /></a>
 					</div>
 				</s:form>
 			</div>

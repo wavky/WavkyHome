@@ -34,7 +34,7 @@
 			<generator class="native" />
 		</id>
 		<property name="description" />
-		<property name="body" />
+		<property name="url" />
 		<property name="request" />
 		<property name="response" />
 		<property name="addTime" />

@@ -109,16 +109,24 @@
 			<result type="redirect">/projectManager</result>
 			<result name="error" type="chain">projectManager</result>
 		</action>
-		<action name="interface_edit" class="interface">
+		
+		<action name="interfaceManager" class="interface">
+			<result>/interface_manager.jsp</result>
+		</action>
+		<action name="newInterface">
 			<result>/interface_edit.jsp</result>
 		</action>
-		<action name="addInterface" class="interface" method="addInterface">
-			<result type="redirect">/interface_edit</result>
-			<result name="error" type="chain">interface_edit</result>
+		<action name="editInterface" class="interface" method="listTargetInterfaceInfo">
+			<result>/interface_edit.jsp</result>
+			<result name="error" type="chain">interfaceManager</result>
+		</action>
+		<action name="saveInterface" class="interface" method="saveInterface">
+			<result type="redirect">/interfaceManager</result>
+			<result name="error" type="chain">newInterface</result>
 		</action>
 		<action name="deleteInterface" class="interface" method="deleteInterface">
-			<result type="redirect">/interface_edit</result>
-			<result name="error" type="chain">interface_edit</result>
+			<result type="redirect">/interfaceManager</result>
+			<result name="error" type="chain">interfaceManager</result>
 		</action>
 	</package>
 	<package name="api" namespace="/api" extends="json-default">
