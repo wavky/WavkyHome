@@ -53,8 +53,7 @@
 					<li><a class="currentTab radius" href="#" target="_self">Home</a>
 					</li>
 					<li><a class="radius" href="lab" target="_self">Lab</a></li>
-					<li><a class="radius" href="api" target="_self">API</a>
-					</li>
+					<li><a class="radius" href="api" target="_self">API</a></li>
 					<li><a class="radius" href="master" target="_self">Master
 							Info</a></li>
 				</ul>
@@ -69,12 +68,9 @@
 				</h1>
 				<ul>
 					<s:iterator value="projectList">
-						<li><s:if test="type=='web'">
-								<a href="<s:property value='webLinkAddr' />" target="_blank">
-							</s:if> <s:else>
-								<a href="showProject?targetProjectId=<s:property value='id'/>"
-									target="_self">
-							</s:else>
+						<li><a
+							href="showProject?targetProjectId=<s:property value='id'/>"
+							target="_self">
 								<div class="recentlyUnit">
 									<div class="snapshot">
 										<img src="<s:property value='snapshotAddr' />" />
@@ -88,9 +84,9 @@
 											<s:if test="type=='Window'">
 												<img src="image/window.png" />
 											</s:if>
-										<s:if test="type=='Tool'">
-											<img src="image/tool.png" />
-										</s:if>
+											<s:if test="type=='Tool'">
+												<img src="image/tool.png" />
+											</s:if>
 										</div>
 									</div>
 									<p class="title">
@@ -107,7 +103,7 @@
 				</h1>
 				<ul>
 					<s:iterator value="articleList">
-						<li><a href="<s:property value='linkAddr' />" ><s:property
+						<li><a href="<s:property value='linkAddr' />"><s:property
 									value="title" /></a></li>
 					</s:iterator>
 				</ul>
