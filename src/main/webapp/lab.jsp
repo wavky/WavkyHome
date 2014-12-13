@@ -53,8 +53,7 @@
 					<li><a class="radius" href="index" target="_self">Home</a></li>
 					<li><a class="currentTab radius" href="#" target="_self">Lab</a>
 					</li>
-					<li><a class="radius" href="api" target="_self">API</a>
-					</li>
+					<li><a class="radius" href="api" target="_self">API</a></li>
 					<li><a class="radius" href="master" target="_self">Master
 							Info</a></li>
 				</ul>
@@ -72,12 +71,9 @@
 				</h1>
 				<ul>
 					<s:iterator value="projectList">
-						<li><s:if test="type=='web'">
-								<a href="<s:property value='webLinkAddr' />" target="_blank">
-							</s:if> <s:else>
-								<a href="showProject?targetProjectId=<s:property value='id'/>"
-									target="_self">
-							</s:else>
+						<li><a
+							href="showProject?targetProjectId=<s:property value='id'/>"
+							target="_self">
 								<div class="projectUnit">
 									<div class="snapshot">
 										<img src="<s:property value='snapshotAddr' />" />
@@ -105,7 +101,7 @@
 				</ul>
 			</div>
 		</div>
-<jsp:include page="footer.jsp" />
+		<jsp:include page="footer.jsp" />
 		<!-- 备用浮动页脚 -->
 		<div id="footer"></div>
 	</div>

@@ -92,13 +92,6 @@
 							<td><s:file name="snapshot" /></td>
 						</tr>
 						<tr>
-							<td>链接 (Web类型)：</td>
-							<td><s:textfield name="webLinkAddr" cssClass="text" /></td>
-						</tr>
-						<tr>
-							<td colspan="2"><hr /></td>
-						</tr>
-						<tr>
 							<td>发布日期：</td>
 							<td><s:textfield name="releaseDateForEditing" type="date"
 									cssClass="text" /></td>

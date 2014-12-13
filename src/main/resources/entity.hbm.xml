@@ -17,7 +17,6 @@
 		</id>
 		<property name="title" />
 		<property name="type" />
-		<property name="webLinkAddr" />
 		<property name="snapshotAddr" />
 		<property name="sourceLinkAddr" />
 		<property name="projectFileAddr" />

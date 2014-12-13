@@ -48,7 +48,6 @@ public class LabAction extends ActionSupport {
 
 	private String title;
 	private String type;
-	private String webLinkAddr;
 	/**
 	 * øÏ’’‘§¿¿Õº∆¨
 	 */
@@ -140,21 +139,6 @@ public class LabAction extends ActionSupport {
 	 */
 	public void setType(String type) {
 		this.type = type;
-	}
-
-	/**
-	 * @return the webLinkAddr
-	 */
-	public String getWebLinkAddr() {
-		return webLinkAddr;
-	}
-
-	/**
-	 * @param webLinkAddr
-	 *            the webLinkAddr to set
-	 */
-	public void setWebLinkAddr(String webLinkAddr) {
-		this.webLinkAddr = webLinkAddr;
 	}
 
 	/**
@@ -569,7 +553,6 @@ public class LabAction extends ActionSupport {
 		Project project = new Project();
 		project.setTitle(title);
 		project.setType(type);
-		project.setWebLinkAddr(webLinkAddr);
 		project.setSnapshotAddr(snapshotPath);
 
 		project.setSourceLinkAddr(sourceLinkAddr);
@@ -603,7 +586,6 @@ public class LabAction extends ActionSupport {
 
 			project.setTitle(title);
 			project.setType(type);
-			project.setWebLinkAddr(webLinkAddr);
 			if (!snapshotPath.isEmpty()) {
 				deleteProjectSnapshot(project);
 				project.setSnapshotAddr(snapshotPath);
@@ -641,7 +623,6 @@ public class LabAction extends ActionSupport {
 			type = project.getType();
 			title = project.getTitle();
 			snapshotAddr = project.getSnapshotAddr();
-			webLinkAddr = project.getWebLinkAddr();
 			downloadAddr = project.getProjectFileAddr();
 			download = project.getDownload();
 			sourceLinkAddr = project.getSourceLinkAddr();
