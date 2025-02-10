@@ -1,14 +1,12 @@
 WavkyHome
 =========
 
-JSP + SSH + MySQL ¸öÈËÍøÕ¾£¬Ê¹ÓÃ **NEW BSD** Ğ­Òé·¢²¼  
-ÍøÕ¾µØÖ·£º<http://wavky.com>
+JSP + SSH + MySQL ä¸ªäººç½‘ç«™ï¼Œä½¿ç”¨ **NEW BSD** åè®®å‘å¸ƒ  
 
-## ÍøÕ¾½á¹¹£º  
-![](http://images.cnitblog.com/blog/539308/201412/141154375871442.png)
-![](http://images.cnitblog.com/blog/539308/201412/141154491033894.png)
-![](http://images.cnitblog.com/blog/539308/201412/141154577431400.png)
+## ç½‘ç«™ç»“æ„ï¼š  
+![](https://github.com/user-attachments/assets/7f18ced8-2ee9-4cdd-ad6d-d1ab6ecc0839)
+![](https://github.com/user-attachments/assets/9bc0587a-08cd-470c-8814-4a334810c718)
+![141154577431400](https://github.com/user-attachments/assets/3e643314-7d78-4b9b-9ac6-74bfefbdfc46)
 
-## ×¢ÒâÊÂÏî²Î¿¼£º 
-* [²©¿ÍÔ°·¢²¼Ìû(ÍÆ¼ö)](http://www.cnblogs.com/wavky/p/WavkyHome.html)  
-* [¹ÙÍø·¢²¼Ìû](http://www.wavky.com/showProject?targetProjectId=4)
+## æ³¨æ„äº‹é¡¹å‚è€ƒï¼š 
+* [åšå®¢å›­å‘å¸ƒå¸–(æ¨è)](http://www.cnblogs.com/wavky/p/WavkyHome.html)  
